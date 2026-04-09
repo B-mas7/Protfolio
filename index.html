@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIMARSHA SHRESTHA — Creative Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-scan"></div>
+ <div class="splash-logo">
+  <span class="first-name">BIMARSHA</span> 
+  <span class="last-name">SHRESTHA</span>
+</div>
+  <div class="splash-tagline">Creative Portfolio · Motion · Design · Code</div>
+  <div class="splash-hint">
+    <div class="hint-text">Press Up Arrow or Click to Continue</div>
+    <div class="hint-arrow"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- ===== MAIN NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-left">
+    <div class="nav-logo" onclick="goHome()">BIMARSHA</br>SHRESTHA</div>
+    <ul class="nav-links">
+      <li><a href="#" onclick="goHome();return false;" id="nl-home" class="active">Home</a></li>
+      <li><a href="#" onclick="openCatPage('motion');return false;" id="nl-motion">Motion</a></li>
+      <li><a href="#" onclick="openCatPage('graphic');return false;" id="nl-graphic">Graphic</a></li>
+      <li><a href="#" onclick="openCatPage('video');return false;" id="nl-video">Video</a></li>
+      <li><a href="#" onclick="openCatPage('web');return false;" id="nl-web">Web Dev</a></li>
+      <li><a href="#" onclick="openCatPage('software');return false;" id="nl-software">Software</a></li>
+      <li><a href="#" onclick="openCatPage('marketing');return false;" id="nl-marketing">Marketing</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <!-- Dark/Light Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+      <button class="theme-btn active" id="btn-dark">🌙</button>
+      <button class="theme-btn" id="btn-light">☀️</button>
+    </div>
+    
+    <div class="nav-avatar" title="BIMARSHA SHRESTHA">D
+      <div class="avatar-dropdown">
+        <a onclick="goHome()">🏠 Home</a>
+        <a onclick="openCatPage('motion')">🎬 Motion Design</a>
+        <a onclick="openCatPage('graphic')">🎨 Graphic Design</a>
+        <a onclick="openCatPage('video')">🎞 Video Editing</a>
+        <a onclick="openCatPage('web')">💻 Web Dev</a>
+        <a onclick="openCatPage('software')">⚙️ Software Dev</a>
+        <a onclick="openCatPage('marketing')">📊 Marketing</a>
+        <hr>
+        <a onclick="toggleTheme()">🌓 Toggle Theme</a>
+        <a onclick="toast('⚙️ Settings coming soon!')">Account Settings</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div id="hero">
+  <div class="hero-video-bg" id="hero-slides"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content" id="hero-content"></div>
+  <div class="hero-progress" id="hero-progress"></div>
+</div>
+
+<!-- ===== MAIN ROWS ===== -->
+<div id="main">
+  <div class="row" id="row-continue" style="display:none;">
+    <div class="row-header">
+      <span class="row-title">Continue Watching</span>
+    </div>
+    <div class="row-slider-wrap">
+      <button class="row-arrow left" onclick="slideRow('track-continue',-1)">&#10094;</button>
+      <div class="row-track" id="track-continue"></div>
+      <button class="row-arrow right" onclick="slideRow('track-continue',1)">&#10095;</button>
+    </div>
+  </div>
+  <!-- dynamic rows injected by JS -->
+</div>
+
+<!-- ===== MAIN SITE FOOTER ===== -->
+<footer id="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+  <span class="first-name">BIMARSHA</span> 
+  <span class="last-name">SHRESTHA</span>
+</div>
+      <p>Creative professional specializing in Motion Design, Graphic Design, Video Editing, Web & Software Development, and Digital Marketing. Based in Lalitpur Nepal.</p>
+      <div class="footer-contact">
+        <a class="footer-contact-item" href="tel:+9779849403476">
+          <div class="footer-contact-icon fc-phone">📞</div>
+          <span>+977 98-49403476</span>
+        </a>
+        <a class="footer-contact-item" href="https://wa.me/9779849403476" target="_blank" rel="noopener">
+          <div class="footer-contact-icon fc-wa">💬</div>
+          <span>WhatsApp Chat</span>
+        </a>
+      </div>
+      <div class="social-links">
+        <a class="social-link" href="https://www.instagram.com/" title="Instagram">📸</a>
+        <a class="social-link" href="https://www.facebook.com/" title="Facebook">f</a>
+        <a class="social-link" href="https://www.linkedin.com/in/bimarsha-shrestha-9b487b21a/" title="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Portfolio</h4>
+      <ul>
+        <li><a href="#" onclick="openCatPage('motion');return false;">Motion Design</a></li>
+        <li><a href="#" onclick="openCatPage('graphic');return false;">Graphic Design</a></li>
+        <li><a href="#" onclick="openCatPage('video');return false;">Video Editing</a></li>
+        <li><a href="#" onclick="openCatPage('web');return false;">Web Development</a></li>
+        <li><a href="#" onclick="openCatPage('software');return false;">Software Dev</a></li>
+        <li><a href="#" onclick="openCatPage('marketing');return false;">Marketing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Brand Identity</a></li>
+        <li><a href="#">Logo Animation</a></li>
+        <li><a href="#">Video Production</a></li>
+        <li><a href="#">Web Apps</a></li>
+        <li><a href="#">SEO & Growth</a></li>
+        <li><a href="#">YouTube Growth</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:bimarsha99@gmail.com">Email BIMARSHA SHRESTHA</a></li>
+        <li><a href="https://wa.me/9779866551446" target="_blank">WhatsApp</a></li>
+        <li><a href="#" onclick="toast('Coming soon!');return false;">Hire Me</a></li>
+        <li><a href="#" onclick="toast('Coming soon!');return false;">Download CV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>
+  © 
+  <span class="first-name">BIMARSHA</span> 
+  <span class="last-name">SHRESTHA</span> 
+  Creative. All rights reserved. Made in Lalitpur 🇳🇵
+</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== CATEGORY PAGE ===== -->
+<div id="cat-page">
+  <!-- Category page Navbar -->
+  <nav class="cat-navbar">
+    <div class="cat-nav-left">
+      <button class="cat-back-btn" onclick="closeCatPage()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        Back
+      </button>
+      <div class="cat-logo" onclick="goHome()">BIMARSHA SHRESTHA</div>
+      <ul class="cat-nav-links" id="cat-nav-links">
+        <li><a href="#" onclick="goHome();return false;">Home</a></li>
+        <li><a href="#" onclick="openCatPage('motion');return false;" id="cnl-motion">Motion</a></li>
+        <li><a href="#" onclick="openCatPage('graphic');return false;" id="cnl-graphic">Graphic</a></li>
+        <li><a href="#" onclick="openCatPage('video');return false;" id="cnl-video">Video</a></li>
+        <li><a href="#" onclick="openCatPage('web');return false;" id="cnl-web">Web Dev</a></li>
+        <li><a href="#" onclick="openCatPage('software');return false;" id="cnl-software">Software</a></li>
+        <li><a href="#" onclick="openCatPage('marketing');return false;" id="cnl-marketing">Marketing</a></li>
+      </ul>
+    </div>
+    <div class="cat-nav-right">
+      <div class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+        <button class="theme-btn" id="cat-btn-dark">🌙</button>
+        <button class="theme-btn" id="cat-btn-light">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="cat-billboard">
+    <div class="cat-bb-bg" id="cpBg"></div>
+    <div class="cat-bb-grad"></div>
+    <div class="cat-bb-content">
+      <div class="cat-bb-tag" id="cpTag"></div>
+      <div class="cat-bb-title" id="cpTitle"></div>
+      <div class="cat-bb-sub" id="cpSub"></div>
+    </div>
+  </div>
+  <div class="cat-grid-section">
+    <div class="cat-grid-title" id="cpGridTitle"></div>
+    <div class="cat-grid" id="cpGrid"></div>
+  </div>
+
+  <!-- Category page footer -->
+  <footer class="cat-footer" style="background:var(--bg2);border-top:1px solid var(--border);padding:28px 4%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--text4);">
+    <div style="font-family:'Bebas Neue',cursive;font-size:28px;color:var(--red);letter-spacing:3px;">BIMARSHA SHRESTHA</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      <a href="tel:+9779866551446" style="color:var(--text3);display:flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--text3)'">📞 +977 98-66551446</a>
+      <a href="https://wa.me/9779866551446" target="_blank" style="color:var(--text3);display:flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='var(--text3)'">💬 WhatsApp</a>
+    </div>
+    <span>©  BIMARSHA SHRESTHA Creative · Lalitpur 🇳🇵</span>
+  </footer>
+</div>
+
+<!-- ===== VIEWER ===== -->
+<div id="viewer">
+  <div class="viewer-topbar">
+    <button class="viewer-close" onclick="closeViewer()">✕</button>
+    <div class="viewer-meta-top">
+      <div class="viewer-cat-label" id="vCatLabel"></div>
+      <div class="viewer-item-title" id="vTitle"></div>
+    </div>
+    <div class="viewer-autoplay-toggle" onclick="toggleAutoplay()">
+      <span>Autoplay</span>
+      <div class="toggle-track on" id="apTrack"><div class="toggle-thumb"></div></div>
+    </div>
+  </div>
+  <div class="viewer-stage">
+    <button class="viewer-nav prev" onclick="viewNav(-1)">&#10094;</button>
+    <img class="viewer-img" id="vImg" src="" alt="">
+    <button class="viewer-nav next" onclick="viewNav(1)">&#10095;</button>
+    <div class="viewer-progress-wrap"><div class="viewer-progress-bar" id="vProgBar" style="width:0%"></div></div>
+  </div>
+  <div class="viewer-filmstrip" id="vFilmstrip"></div>
+</div>
+
+<!-- ===== INFO MODAL ===== -->
+<div id="info-modal">
+  <div class="info-box">
+    <div class="info-hero">
+      <img id="infoHeroImg" src="" alt="">
+      <div class="info-hero-grad"></div>
+      <div class="info-hero-btns">
+        <button class="btn-play" id="infoPlayBtn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play
+        </button>
+      </div>
+      <button class="info-close" onclick="closeInfo()">✕</button>
+    </div>
+    <div class="info-body">
+      <div class="info-row1">
+        <div class="info-main">
+          <div class="info-meta">
+            <span class="info-match" id="infoMatch"></span>
+            <span class="info-year" id="infoYear"></span>
+            <span class="info-hd">HD</span>
+          </div>
+          <div class="info-title" id="infoTitle"></div>
+          <div class="info-desc" id="infoDesc"></div>
+        </div>
+        <div class="info-side">
+          <div class="info-side-row"><span class="info-side-label">Category: </span><span class="info-side-val" id="infoCategory"></span></div>
+          <div class="info-side-row"><span class="info-side-label">Tags: </span><span class="info-side-val" id="infoTags"></span></div>
+          <div class="info-side-row"><span class="info-side-label">Tools: </span><span class="info-side-val" id="infoTools"></span></div>
+          <div class="info-side-row"><span class="info-side-label">Year: </span><span class="info-side-val" id="infoYearSide"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// Pre-load all videos in background
+function preloadVideos() {
+  document.querySelectorAll('video.card-img').forEach(video => {
+    video.load();
+    // Try to play muted to "activate" the video element
+    video.muted = true;
+    video.play().then(() => {
+      video.pause();
+      video.currentTime = 0;
+    }).catch(e => console.log('Preload play blocked', e));
+  });
+}
+
+// Call this after page loads
+setTimeout(preloadVideos, 2000);
+
+
+
+/* ========================================================
+   PORTFOLIO DATA — Replace thumb URLs with your actual images
+   ======================================================== */
+const CATS = {
+  motion:{
+    label:'Motion Design', color:'#E50914',
+    bg:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80',
+    sub:'Bringing ideas to life through animation & motion',
+    items:[
+      {id:'m1',title:'Brand Animation Reel',
+       thumb:'1.mp4',
+        poster:'thumnail1.png',  // Add this line
+       tags:['Branding','After Effects'],tools:'After Effects · Cinema 4D',year:'',
+       desc:'A complete brand animation reel showcasing logo reveals, kinetic typography, and seamless motion transitions.',match:97},
+      {id:'m2',title:'Logo Reveal Collection',
+       thumb:'2.mp4',
+       tags:['Logo','Reveal'],tools:'After Effects · Illustrator',year:'',
+       desc:'Premium logo reveal animations with particle effects, 3D extrude, and liquid morphing techniques.',match:95},
+      {id:'m3',title:'UI Micro-Animations',
+       thumb:'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=600&q=80',
+       tags:['UI/UX','Lottie'],tools:'After Effects · Lottie',year:'',
+       desc:'Smooth, purposeful UI micro-interactions exported as Lottie JSON for web/app integration.',match:93},
+      {id:'m4',title:'Motion Design',
+       thumb:'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80',
+       tags:['Reel','Premium'],tools:'Premiere Pro · AE · C4D',year:'',
+       desc:'Simple to Modern Motion Graphics 2D, 3D Motion both Design.',match:99,featured:true},
+      {id:'m5',title:'Particle System Art',
+       thumb:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',
+       tags:['Generative','Art'],tools:'After Effects · Trapcode',year:'2023',
+       desc:'Generative particle art motion pieces using Trapcode Suite for editorial and fashion clients.',match:91},
+      {id:'m6',title:'3D Title Sequences',
+       thumb:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80',
+       tags:['3D','Cinema 4D'],tools:'Cinema 4D · Octane',year:'2023',
+       desc:'Cinematic 3D title sequences for YouTube channels, brand films, and broadcast.',match:94},
+      {id:'m7',title:'Social Motion Pack',
+       thumb:'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80',
+       tags:['Social','Instagram'],tools:'After Effects · Premiere',year:'',
+       desc:'Full social media motion pack: Instagram stories, reels, YouTube intro/outro, and LinkedIn banners.',match:90},
+      {id:'m8',title:'Product Showcase Animations',
+       thumb:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80',
+       tags:['Product','E-commerce'],tools:'Blender · After Effects',year:'',
+       desc:'3D product showcase animations for e-commerce — 360° rotations, exploded views, and feature callouts.',match:92},
+    ]
+  },
+  graphic:{
+    label:'Graphic Design', color:'#0078FF',
+    bg:'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1600&q=80',
+    sub:'Visual communication crafted for impact',
+    items:[
+      {id:'g1',title:'Brand Identity System',
+       thumb:'1.webp',
+       tags:['Branding','Identity'],tools:'Illustrator · Photoshop',year:'',
+       desc:'Complete brand identity systems — logo, color, typography, stationery, and brand guidelines.',match:98},
+      {id:'g2',title:'Poster Design Collection',
+       thumb:'2.webp',
+       tags:['Poster','Print'],tools:'Illustrator · InDesign',year:'',
+       desc:'Award-worthy poster designs for music events, film festivals, corporate conferences, and product launches.',match:96},
+      {id:'g3',title:'Graphic Design',
+       thumb:'3.webp',
+       tags:['Showcase','Featured'],tools:'Illustrator · Photoshop · Figma',year:'',
+       desc:'The definitive graphic design showcase — brand identities, editorial layouts, and visual art.',match:99,featured:true},
+      {id:'g4',title:'Packaging & Label Design',
+       thumb:'4.webp',
+       tags:['Packaging','Label'],tools:'Illustrator · Photoshop',year:'2023',
+       desc:'Premium product packaging designs for food & beverage, cosmetics, and lifestyle brands.',match:93},
+      {id:'g5',title:'Infographic Suite',
+       thumb:'5.webp',
+       tags:['Data','Infographic'],tools:'Illustrator · After Effects',year:'',
+       desc:'Complex data made beautiful — editorial infographics, process diagrams, and animated charts.',match:91},
+      {id:'g6',title:'Social Media Kit',
+       thumb:'6.png',
+       tags:['Social','Templates'],tools:'Photoshop · Figma',year:'',
+       desc:'Full-scale social media design kits: feed grids, story templates, highlight covers, and content calendars.',match:94},
+      {id:'g7',title:'Magazine & Editorial Layout',
+       thumb:'7.png',
+       tags:['Magazine','Editorial'],tools:'InDesign · Photoshop',year:'2023',
+       desc:'Sophisticated editorial and magazine layouts with expert typography, white space, and visual hierarchy.',match:95},
+      {id:'g8',title:'Custom Icon Libraries',
+       thumb:'8.png',
+       tags:['Icons','UI'],tools:'Illustrator · Figma',year:'',
+       desc:'Hand-crafted icon sets and illustration libraries for apps, websites, and brand materials.',match:89},
+      {id:'g9',title:'Typography Exploration',
+       thumb:'9.png',
+       tags:['Typography','Experimental'],tools:'Illustrator · Photoshop',year:'2023',
+       desc:'Experimental typography projects pushing the boundaries of letterform, layout, and visual rhythm.',match:92},
+    ]
+  },
+  video:{
+    label:'Video Editing', color:'#46d369',
+    bg:'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1600&q=80',
+    sub:'Storytelling through the lens of cinematic craft',
+    items:[
+      {id:'v1',title:'Video Editing',
+       thumb:'1.webp',
+       tags:['Reel','Featured'],tools:'Premiere Pro · DaVinci',year:'',
+       desc:'The flagship video editing reel — cinematic cuts, colour grades, and storytelling across commercial, music, and documentary projects.',match:99,featured:true},
+      {id:'v2',title:'Corporate Film Production',
+       thumb:'2.webp',
+       tags:['Corporate','Film'],tools:'Premiere Pro · After Effects',year:'',
+       desc:'High-end corporate films and company profiles — scripted, shot, and edited to broadcast standard.',match:97},
+      {id:'v3',title:'Music Video Edits',
+       thumb:'3.webp',
+       tags:['Music','Cinematic'],tools:'Premiere Pro · Lumetri',year:'',
+       desc:'Cinematic music video edits with advanced colour grading, VFX integration, and sync-to-beat precision.',match:95},
+      {id:'v4',title:'YouTube Channel Content',
+       thumb:'4.webp',
+       tags:['YouTube','Content'],tools:'Premiere Pro · AE',year:'',
+       desc:'YouTube content production and editing — including @jungleonly99 MLBB gameplay edits with dynamic cuts.',match:98},
+      {id:'v5',title:'Wedding Cinematic Film',
+       thumb:'5.webp',
+       tags:['Wedding','Cinematic'],tools:'DaVinci Resolve · Premiere',year:'2023',
+       desc:'Luxury wedding highlight films with cinematic colour grading, aerial drone cuts, and emotional storytelling.',match:93},
+      {id:'v6',title:'TV Commercial & Ads',
+       thumb:'6.png',
+       tags:['Commercial','TV'],tools:'Premiere Pro · After Effects',year:'',
+       desc:'Broadcast-quality TV and digital commercials — from 15-second bumpers to 60-second brand films.',match:96},
+      {id:'v7',title:'Short Documentary',
+       thumb:'7.png',
+       tags:['Documentary','Story'],tools:'Premiere Pro · DaVinci',year:'2023',
+       desc:'Short-form documentary edits with expert pacing, archival integration, and cinematic grade.',match:91},
+      {id:'v8',title:'Travel & Lifestyle Vlogs',
+       thumb:'8.png',
+       tags:['Travel','Vlog'],tools:'Premiere Pro · Lumetri',year:'',
+       desc:'Cinematic travel content with sweeping landscape grades, seamless J-cuts, and dynamic colour palettes.',match:92},
+    ]
+  },
+  web:{
+    label:'Web Development', color:'#9c27b0',
+    bg:'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1600&q=80',
+    sub:'Building performant digital experiences',
+    items:[
+      {id:'w1',title:'Website Development',
+       thumb:'web1.png',
+       tags:['PHP','MariaDB'],tools:'PHP · MariaDB · Bootstrap',year:'',
+       desc:'Full Website Developemnt Simple to Modern all Type of Website Developments.',match:99,featured:true},
+      {id:'w2',title:'E-Commerce Platform',
+       thumb:'web2.png',
+       tags:['E-commerce','Full-stack'],tools:'PHP · MySQL · JS',year:'',
+       desc:'Complete e-commerce solution with cart, payment gateway, inventory management, and admin dashboard.',match:97},
+      {id:'w3',title:'SaaS Analytics Dashboard',
+       thumb:'web3.png',
+       tags:['Dashboard','SaaS'],tools:'React · Node · Chart.js',year:'',
+       desc:'Real-time analytics SaaS dashboard with websocket updates, multi-tenant auth, and custom reporting.',match:95},
+      {id:'w4',title:'Creative Agency Website',
+       thumb:'web5.png',
+       tags:['Agency','Portfolio'],tools:'HTML · CSS · GSAP',year:'',
+       desc:'Award-level creative agency websites with GSAP scroll animations, 3D effects, and immersive UX.',match:96},
+      {id:'w5',title:'Restaurant Online Ordering',
+       thumb:'web6.png',
+       tags:['Restaurant','App'],tools:'PHP · JS · Bootstrap',year:'2023',
+       desc:'End-to-end restaurant ordering system with menu builder, order tracking, table reservations, and POS.',match:91},
+      {id:'w6',title:'Real Estate Portal',
+       thumb:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80',
+       tags:['Real Estate','Portal'],tools:'PHP · MySQL · Maps API',year:'2023',
+       desc:'Property listing portal with geo-search, mortgage calculator, agent CRM, and virtual tour integration.',match:93},
+      {id:'w7',title:'LMS Learning Platform',
+       thumb:'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&q=80',
+       tags:['LMS','Education'],tools:'PHP · MySQL · Video.js',year:'',
+       desc:'Learning management system with video courses, quizzes, certificates, progress tracking, and payment.',match:94},
+      {id:'w8',title:'Healthcare Patient Portal',
+       thumb:'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80',
+       tags:['Healthcare','Portal'],tools:'PHP · MariaDB · Bootstrap',year:'',
+       desc:'Secure patient management portal with appointment booking, test results, prescriptions, and billing.',match:92},
+    ]
+  },
+  software:{
+    label:'Software Development', color:'#ff9800',
+    bg:'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1600&q=80',
+    sub:'Engineering solutions that scale and endure',
+    items:[
+      {id:'s1',title:'Software Development',
+       thumb:'software1.png',
+       tags:['PHP','System'],tools:'PHP · MariaDB · Bootstrap',year:'',
+       desc:'Full lab management system for Laboratory and Diagnostic Center — patient records, test tracking, billing, LIS, real-time Chart.js dashboard,.............',match:99,featured:true},
+      {id:'s2',title:'Mobile App (Android)',
+       thumb:'software2.png',
+       tags:['Android','App'],tools:'React Native · Firebase',year:'',
+       desc:'Cross-platform Android/iOS application with offline-first architecture, push notifications, and real-time sync.',match:95},
+      {id:'s3',title:'REST API Microservices',
+       thumb:'software3.png',
+       tags:['API','Node.js'],tools:'Node.js · Express · PostgreSQL',year:'',
+       desc:'Scalable REST API microservices with JWT auth, rate limiting, Redis caching, and Swagger docs.',match:94},
+      {id:'s4',title:'Database Architecture',
+       thumb:'software4.png',
+       tags:['Database','SQL'],tools:'MariaDB · MySQL · Redis',year:'',
+       desc:'Enterprise database architecture — schema design, query optimisation, replication, sharding, and backup.',match:92},
+      {id:'s5',title:'Python Automation Suite',
+       thumb:'software5.png',
+       tags:['Python','Automation'],tools:'Python · Selenium · Pandas',year:'2023',
+       desc:'Business process automation using Python — web scraping, data pipelines, report generation.',match:90},
+      {id:'s6',title:'Poco F3 Custom ROM Setup',
+       thumb:'software6.png',
+       tags:['Android','Custom ROM'],tools:'Evolution X 9.0 · ADB',year:'',
+       desc:'Advanced Android customisation on Poco F3 — Evolution X 9.0, RealKing kernel, Kprofiles for PUBG performance.',match:98},
+      {id:'s7',title:'Browser Extension',
+       thumb:'software7.png',
+       tags:['Chrome','Extension'],tools:'JS · Chrome API · CSS',year:'2023',
+       desc:'Productivity browser extension with tab management, note-taking, site blocking, and sync.',match:88},
+      {id:'s8',title:'Custom CMS Platform',
+       thumb:'software8.png',
+       tags:['CMS','PHP'],tools:'PHP · MySQL · TinyMCE',year:'2023',
+       desc:'Headless CMS with drag-and-drop page builder, media library, SEO tools, and multi-site management.',match:93},
+    ]
+  },
+  marketing:{
+    label:'Digital Marketing', color:'#f44336',
+    bg:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80',
+    sub:'Growing brands and audiences in the digital era',
+    items:[
+      {id:'mk1',title:'Digital Marketing',
+       thumb:'web2.png',
+       tags:['Social','Strategy'],tools:'Meta Ads · Canva · Analytics',year:'',
+       desc:'Full social media strategy — content calendars, community management, paid social, and growth analytics.',match:96},
+      {id:'mk2',title:'',
+       thumb:'',
+       tags:['SEO','Technical'],tools:'SEMrush · Ahrefs · GA4',year:'',
+       desc:'Comprehensive technical and content SEO audits, keyword research, backlink campaigns, and rank tracking.',match:94},
+      {id:'mk3',title:'',
+       thumb:'',
+       tags:['YouTube','MLBB'],tools:'TubeBuddy · Analytics',year:'',
+       desc:'YouTube channel growth strategy for @jungleonly99 — Julian jungle MLBB content, title A/B testing, tag auditing, Shorts strategy.',match:99,featured:true},
+      {id:'mk4',title:'',
+       thumb:'',
+       tags:['PPC','Google'],tools:'Google Ads · Analytics · Looker',year:'',
+       desc:'High-ROAS Google Ads campaigns — Search, Display, YouTube, and Shopping with conversion optimisation.',match:93},
+      {id:'mk5',title:'',
+       thumb:'',
+       tags:['Email','Automation'],tools:'Mailchimp · Klaviyo · HubSpot',year:'',
+       desc:'Drip campaigns, welcome sequences, and behavioural automation flows with industry-leading open rates.',match:91},
+      {id:'mk6',title:'',
+       thumb:'',
+       tags:['Analytics','GA4'],tools:'GA4 · Looker Studio · BigQuery',year:'',
+       desc:'Custom GA4 dashboards, Looker Studio reports, and event tracking for marketing attribution.',match:95},
+      {id:'mk7',title:'',
+       thumb:'',
+       tags:['Content','Blog'],tools:'WordPress · SEMrush · Figma',year:'2023',
+       desc:'Full content strategy from ideation to distribution — blog, video, and social pipelines with SEO.',match:90},
+      {id:'mk8',title:'',
+       thumb:'',
+       tags:['Report','Brand'],tools:'PowerPoint · Data Studio',year:'',
+       desc:'Comprehensive 6-month brand health audits covering reach, share-of-voice, sentiment, and competitive positioning.',match:88},
+    ]
+  }
+};
+
+const HERO_ITEMS = [
+  {cat:'motion',  idx:3},
+  {cat:'video',   idx:0},
+  {cat:'graphic', idx:2},
+  {cat:'web',     idx:0},
+  {cat:'marketing',idx:2},
+  {cat:'software',idx:0},
+];
+
+/* ========================================================
+   STATE
+   ======================================================== */
+let heroIdx   = 0;
+let heroTimer = null;
+let autoplay  = true;
+let vItems    = [];
+let vIdx      = 0;
+let vProgTimer = null;
+let vProg     = 0;
+let rowOffsets = {};
+let currentCat = null;
+
+/* ========================================================
+   THEME
+   ======================================================== */
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  // main navbar buttons
+  document.getElementById('btn-dark').classList.toggle('active', theme === 'dark');
+  document.getElementById('btn-light').classList.toggle('active', theme === 'light');
+  // cat navbar buttons
+  const cd = document.getElementById('cat-btn-dark');
+  const cl = document.getElementById('cat-btn-light');
+  if (cd) cd.classList.toggle('active', theme === 'dark');
+  if (cl) cl.classList.toggle('active', theme === 'light');
+  try { localStorage.setItem('BIMARSHA SHRESTHA_theme', theme); } catch(e) {}
+}
+
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  applyTheme(cur === 'dark' ? 'light' : 'dark');
+  toast(cur === 'dark' ? '☀️ Light mode on' : '🌙 Dark mode on');
+}
+
+// Load saved theme
+(function() {
+  try {
+    const saved = localStorage.getItem('BIMARSHA SHRESTHA_theme');
+    if (saved) applyTheme(saved);
+  } catch(e) {}
+})();
+
+/* ========================================================
+   BOOT / SPLASH
+   ======================================================== */
+document.addEventListener('keydown', e => {
+  const splash = document.getElementById('splash');
+  if (!splash.classList.contains('hidden') && e.key === 'ArrowUp') {
+    enterPortfolio();
+  }
+  const viewer = document.getElementById('viewer');
+  if (viewer.classList.contains('open')) {
+    if (e.key === 'ArrowLeft')  viewNav(-1);
+    if (e.key === 'ArrowRight') viewNav(1);
+    if (e.key === 'Escape')     closeViewer();
+  }
+  if (document.getElementById('info-modal').classList.contains('open') && e.key === 'Escape') closeInfo();
+  if (document.getElementById('cat-page').classList.contains('open') && e.key === 'Escape')   closeCatPage();
+});
+
+document.getElementById('splash').addEventListener('click', () => {
+  if (!document.getElementById('splash').classList.contains('hidden')) enterPortfolio();
+});
+
+function enterPortfolio() {
+  document.getElementById('splash').classList.add('hidden');
+  const nav  = document.getElementById('navbar');
+  const hero = document.getElementById('hero');
+  nav.classList.add('visible');
+  hero.classList.add('visible');
+  buildHero();
+  buildAllRows();
+  buildContinueRow();
+  window.addEventListener('scroll', onScroll);
+}
+
+function onScroll() {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+}
+
+/* ========================================================
+   NAV HIGHLIGHT
+   ======================================================== */
+function setNavActive(key) {
+  // Main navbar
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if (key === 'home') {
+    document.getElementById('nl-home').classList.add('active');
+  } else if (key && document.getElementById('nl-' + key)) {
+    document.getElementById('nl-' + key).classList.add('active');
+  }
+  // Category navbar
+  document.querySelectorAll('.cat-nav-links a').forEach(a => a.classList.remove('active'));
+  if (key && key !== 'home' && document.getElementById('cnl-' + key)) {
+    document.getElementById('cnl-' + key).classList.add('active');
+  }
+}
+
+/* ========================================================
+   HERO
+   ======================================================== */
+function buildHero() {
+  const slidesEl = document.getElementById('hero-slides');
+  slidesEl.innerHTML = '';
+  HERO_ITEMS.forEach((h, i) => {
+    const item = CATS[h.cat].items[h.idx];
+    const div  = document.createElement('div');
+    div.className = 'hero-slide' + (i === 0 ? ' active' : '');
+    div.style.backgroundImage = `url('${item.thumb}')`;
+    slidesEl.appendChild(div);
+  });
+  buildProgDots();
+  renderHeroContent();
+  heroTimer = setInterval(advanceHero, 7000);
+}
+
+function buildProgDots() {
+  const el = document.getElementById('hero-progress');
+  el.innerHTML = '';
+  HERO_ITEMS.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'hero-pdot' + (i === 0 ? ' active' : '');
+    d.onclick = () => { heroIdx = i; updateHero(); };
+    el.appendChild(d);
+  });
+}
+
+function renderHeroContent() {
+  const h    = HERO_ITEMS[heroIdx];
+  const cat  = CATS[h.cat];
+  const item = cat.items[h.idx];
+  document.getElementById('hero-content').innerHTML = `
+    <div class="hero-badge">
+      <span class="hero-badge-tag" style="background:${cat.color}">${cat.label}</span>
+      <span class="hero-badge-year">${item.year}</span>
+    </div>
+    <div class="hero-title-img">${item.title}</div>
+    <div class="hero-meta">
+      <span class="hero-rating">${item.match}% Match</span>
+      <span class="hero-dot">·</span>
+      <div class="hero-tags">${item.tags.map(t=>`<span class="hero-tag">${t}</span>`).join('')}</div>
+    </div>
+    <div class="hero-desc">${item.desc}</div>
+    <div class="hero-btns">
+      <button class="btn-play" onclick="openViewer('${h.cat}',${h.idx})">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play
+      </button>
+      <button class="btn-more" onclick="openInfo('${h.cat}',${h.idx})">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>More Info
+      </button>
+    </div>
+  `;
+}
+
+function advanceHero() { heroIdx = (heroIdx + 1) % HERO_ITEMS.length; updateHero(); }
+function updateHero() {
+  document.querySelectorAll('.hero-slide').forEach((s,i) => s.classList.toggle('active', i===heroIdx));
+  document.querySelectorAll('.hero-pdot').forEach((d,i) => d.classList.toggle('active', i===heroIdx));
+  renderHeroContent();
+}
+
+/* ========================================================
+   BUILD ROWS
+   ======================================================== */
+function buildAllRows() {
+  const main = document.getElementById('main');
+  main.querySelectorAll('.row:not(#row-continue)').forEach(r => r.remove());
+
+  // Featured picks
+  const featured = [];
+  Object.entries(CATS).forEach(([k, cat]) => {
+    cat.items.filter(it => it.featured).forEach(it => featured.push({...it, _cat: k}));
+  });
+  if (featured.length) buildRow(main, 'Top Picks for You', 'track-featured', featured);
+
+  // Per-category
+  Object.entries(CATS).forEach(([key, cat]) => {
+    buildRow(main, cat.label, 'track-'+key, cat.items.map(it=>({...it,_cat:key})), key);
+  });
+
+  // Spotlight
+  const spotlight = Object.entries(CATS).map(([k,cat]) => ({...cat.items[0], _cat:k}));
+  buildRow(main, 'Design Spotlight ✦', 'track-spotlight', spotlight);
+}
+
+function buildRow(container, title, trackId, items, catKey) {
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = `
+    <div class="row-header">
+      <span class="row-title" ${catKey ? `onclick="openCatPage('${catKey}')"` : ''}>${title}</span>
+      ${catKey ? `<span class="row-explore" onclick="openCatPage('${catKey}')">Explore All <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>` : ''}
+    </div>
+    <div class="row-slider-wrap">
+      <button class="row-arrow left" onclick="slideRow('${trackId}',-1)">&#10094;</button>
+      <div class="row-track" id="${trackId}"></div>
+      <button class="row-arrow right" onclick="slideRow('${trackId}',1)">&#10095;</button>
+    </div>
+  `;
+  container.appendChild(row);
+  const track = row.querySelector('.row-track');
+  items.forEach((item, i) => {
+    const card = makeCard(item, item._cat || catKey, i, items);
+    track.appendChild(card);
+  });
+}
+
+function makeCard(item, catKey, idx, itemsArray) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  const cat = CATS[catKey] || {};
+  
+  const isVideo = item.thumb.endsWith('.mp4') || item.thumb.endsWith('.webm');
+  const captureTime = item.captureTime || 1;
+  
+  let thumbHtml = '';
+  if (isVideo) {
+    // Add a poster placeholder
+    thumbHtml = `<video class="card-img" src="${item.thumb}" muted loop preload="auto" 
+                       poster="" playsinline webkit-playsinline
+                       style="transition: transform 0.3s ease; object-fit: cover; width: 100%; height: 100%; background: #1a1a1a;"></video>
+                 <div class="video-loading" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; background:rgba(0,0,0,0.7); padding:5px 10px; border-radius:20px; font-size:12px; z-index:2;">Loading...</div>`;
+  } else {
+    thumbHtml = `<img class="card-img" src="${item.thumb}" alt="${item.title}" loading="lazy"
+                      style="transition: transform 0.3s ease;"
+                      onmouseenter="this.style.transform='scale(1.05)'"
+                      onmouseleave="this.style.transform='scale(1)'">`;
+  }
+  
+  card.innerHTML = `
+    ${thumbHtml}
+    <div class="card-fallback" style="background:${cat.color||'#333'}22;display:none;">${item.title}</div>
+    <div class="card-popup">
+      <img class="card-popup-img" src="${item.thumb}" alt="" loading="lazy">
+      <div class="card-popup-body">
+        <div class="card-popup-actions">
+          <button class="cp-btn primary" onclick="openViewer('${catKey}',${idx},event)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button class="cp-btn" onclick="openInfo('${catKey}',${idx},event)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </button>
+          <div class="cp-spacer"></div>
+          <button class="cp-btn chev" onclick="openInfo('${catKey}',${idx},event)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+          </button>
+        </div>
+        <div class="card-popup-title">${item.title}</div>
+        <div class="card-popup-meta">
+          <span class="meta-match">${item.match}% Match</span>
+          <span class="meta-hd">HD</span>
+        </div>
+        <div class="card-popup-tags">${(item.tags||[]).map(t=>`<span class="card-popup-tag">${t}</span>`).join('')}</div>
+      </div>
+    </div>
+  `;
+  
+  if (isVideo) {
+    const videoElem = card.querySelector('.card-img');
+    const loadingDiv = card.querySelector('.video-loading');
+    
+    // Force video to show first frame immediately
+    videoElem.addEventListener('loadeddata', function() {
+      if (loadingDiv) loadingDiv.style.display = 'none';
+      // Set current time to 0.1 to show first frame
+      this.currentTime = 0.1;
+    });
+    
+    // Capture frame at specified time for poster
+    videoElem.addEventListener('loadedmetadata', function() {
+      const seekTo = Math.min(captureTime, this.duration - 0.5);
+      this.currentTime = seekTo;
+    });
+    
+    videoElem.addEventListener('seeked', function() {
+      const canvas = document.createElement('canvas');
+      canvas.width = this.videoWidth;
+      canvas.height = this.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+      this.poster = canvas.toDataURL('image/jpeg');
+      // Reset to first frame so it shows something
+      this.currentTime = 0;
+      if (loadingDiv) loadingDiv.style.display = 'none';
+    });
+    
+    // Handle hover play with poster visible
+    let isHovering = false;
+    
+    card.addEventListener('mouseenter', function() {
+      isHovering = true;
+      const video = this.querySelector('.card-img');
+      if (video) {
+        video.style.transform = 'scale(1.05)';
+        // Ensure video has poster before playing
+        if (video.poster) {
+          video.play().catch(e => console.log('Play error:', e));
+        } else {
+          // Wait a bit for poster to be ready
+          setTimeout(() => {
+            if (isHovering && video.poster) {
+              video.play().catch(e => console.log('Delayed play error:', e));
+            }
+          }, 200);
+        }
+      }
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      isHovering = false;
+      const video = this.querySelector('.card-img');
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.style.transform = 'scale(1)';
+      }
+    });
+  }
+  
+  card.addEventListener('click', () => openViewer(catKey, idx));
+  return card;
+}
+
+/* ========================================================
+   CONTINUE WATCHING
+   ======================================================== */
+let continueList = [];
+try { continueList = JSON.parse(localStorage.getItem('BIMARSHA SHRESTHA_cw') || '[]'); } catch(e) {}
+
+function buildContinueRow() {
+  if (!continueList.length) { 
+    document.getElementById('row-continue').style.display = 'none'; 
+    return; 
+  }
+  document.getElementById('row-continue').style.display = 'block';
+  const track = document.getElementById('track-continue');
+  track.innerHTML = '';
+  
+  continueList.slice(0, 10).forEach(({cat: catKey, id}) => {
+    const cat = CATS[catKey]; if (!cat) return;
+    const idx = cat.items.findIndex(it => it.id === id);
+    if (idx < 0) return;
+    const item = cat.items[idx];
+    const card = document.createElement('div');
+    card.className = 'card card-continue';
+    const prog = Math.round(20 + Math.random() * 60);
+    
+    const isVideo = item.thumb.endsWith('.mp4') || item.thumb.endsWith('.webm');
+    const captureTime = item.captureTime || 1;
+    
+    let thumbHtml = '';
+    if (isVideo) {
+      thumbHtml = `<video class="card-img" src="${item.thumb}" muted loop preload="auto" 
+                         poster="" playsinline
+                         style="transition: transform 0.3s ease; object-fit: cover; width: 100%; height: 100%;"
+                         onmouseenter="this.play(); this.style.transform='scale(1.05)'" 
+                         onmouseleave="this.pause(); this.currentTime=0; this.style.transform='scale(1)'"></video>`;
+    } else {
+      thumbHtml = `<img class="card-img" src="${item.thumb}" alt="${item.title}" loading="lazy"
+                        style="transition: transform 0.3s ease;"
+                        onmouseenter="this.style.transform='scale(1.05)'"
+                        onmouseleave="this.style.transform='scale(1)'">`;
+    }
+    
+    card.innerHTML = `
+      ${thumbHtml}
+      <div class="continue-progress"><div class="continue-bar" style="width:${prog}%"></div></div>
+      <div class="card-popup">
+        <img class="card-popup-img" src="${item.thumb}" alt="">
+        <div class="card-popup-body">
+          <div class="card-popup-actions">
+            <button class="cp-btn primary" onclick="openViewer('${catKey}',${idx},event)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="cp-spacer"></div>
+          </div>
+          <div class="card-popup-title">${item.title}</div>
+          <div class="card-popup-meta"><span class="meta-match">${prog}% watched</span></div>
+        </div>
+      </div>
+    `;
+    
+    if (isVideo) {
+      const videoElem = card.querySelector('.card-img');
+      videoElem.addEventListener('loadedmetadata', function() {
+        const seekTo = Math.min(captureTime, this.duration - 0.5);
+        this.currentTime = seekTo;
+      });
+      videoElem.addEventListener('seeked', function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = this.videoWidth;
+        canvas.height = this.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+        this.poster = canvas.toDataURL('image/jpeg');
+        this.currentTime = 0;
+      });
+    }
+    
+    card.addEventListener('click', () => openViewer(catKey, idx));
+    track.appendChild(card);
+  });
+}
+
+function addContinue(catKey, itemId) {
+  continueList = continueList.filter(c => !(c.cat === catKey && c.id === itemId));
+  continueList.unshift({cat: catKey, id: itemId});
+  if (continueList.length > 10) continueList = continueList.slice(0, 10);
+  try { localStorage.setItem('BIMARSHA SHRESTHA_cw', JSON.stringify(continueList)); } catch(e) {}
+  buildContinueRow();
+}
+
+/* ========================================================
+   ROW SLIDING
+   ======================================================== */
+function slideRow(trackId, dir) {
+  const track = document.getElementById(trackId); if (!track) return;
+  const cardEl = track.querySelector('.card'); if (!cardEl) return;
+  const step   = cardEl.offsetWidth + 6;
+  const visible = Math.floor(track.parentElement.offsetWidth / step);
+  const total   = track.children.length;
+  rowOffsets[trackId] = (rowOffsets[trackId] || 0) + dir * visible;
+  rowOffsets[trackId] = Math.max(0, Math.min(rowOffsets[trackId], total - visible));
+  track.style.transform = `translateX(-${rowOffsets[trackId] * step}px)`;
+}
+
+/* ========================================================
+   VIEWER — Fixed image fitting
+   ======================================================== */
+function openViewer(catKey, idx, e) {
+  if (e) e.stopPropagation();
+  clearInterval(heroTimer);
+  vItems = CATS[catKey].items;
+  vIdx   = idx;
+  document.getElementById('vCatLabel').textContent = CATS[catKey].label;
+  addContinue(catKey, vItems[idx].id);
+  renderViewer();
+  document.getElementById('viewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (autoplay) startViewerAutoplay();
+}
+
+function renderViewer() {
+  const item = vItems[vIdx];
+  document.getElementById('vTitle').textContent = item.title;
+  
+  const stage = document.querySelector('.viewer-stage');
+  const oldMedia = document.getElementById('vImg');
+  const oldVideo = document.getElementById('vPlayer');
+  
+  if (item.thumb.endsWith('.mp4') || item.thumb.endsWith('.webm')) {
+    if (oldMedia && oldMedia.tagName === 'IMG') oldMedia.remove();
+    if (oldVideo) oldVideo.remove();
+    
+    const video = document.createElement('video');
+    video.id = 'vPlayer';
+    video.src = item.thumb;
+    // Try poster from data, or auto from same name .jpg/.png
+    video.poster = item.poster || item.thumb.replace('.mp4', '.jpg').replace('.webm', '.png');
+    video.autoplay = true;
+    video.controls = true;
+    video.style.width = '100%';
+    video.style.maxHeight = '70vh';
+    video.style.borderRadius = '8px';
+    video.style.backgroundColor = '#000';
+    
+    const nextBtn = document.querySelector('.viewer-nav.next');
+    stage.insertBefore(video, nextBtn);
+    
+  } else {
+    if (oldVideo) oldVideo.remove();
+    let img = document.getElementById('vImg');
+    if (!img) {
+      img = document.createElement('img');
+      img.id = 'vImg';
+      img.className = 'viewer-img';
+      const nextBtn = document.querySelector('.viewer-nav.next');
+      stage.insertBefore(img, nextBtn);
+    }
+    img.classList.add('loading');
+    const newImg = new Image();
+    newImg.onload = () => {
+      img.src = item.thumb;
+      img.classList.remove('loading');
+    };
+    newImg.src = item.thumb;
+  }
+  buildFilmstrip();
+}
+
+function buildFilmstrip() {
+  const fs = document.getElementById('vFilmstrip');
+  fs.innerHTML = '';
+  vItems.forEach((it, i) => {
+    const img = document.createElement('img');
+    img.src = it.thumb; img.alt = it.title;
+    img.className = 'film-thumb' + (i === vIdx ? ' active' : '');
+    img.onclick = () => { vIdx = i; renderViewer(); resetViewerAutoplay(); };
+    fs.appendChild(img);
+  });
+  setTimeout(() => {
+    const active = fs.querySelector('.film-thumb.active');
+    if (active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  }, 100);
+}
+
+function viewNav(dir) {
+  vIdx = (vIdx + dir + vItems.length) % vItems.length;
+  renderViewer();
+  resetViewerAutoplay();
+}
+
+function closeViewer() {
+  document.getElementById('viewer').classList.remove('open');
+  document.body.style.overflow = '';
+  clearInterval(vProgTimer);
+  heroTimer = setInterval(advanceHero, 7000);
+}
+
+function startViewerAutoplay() {
+  clearInterval(vProgTimer);
+  vProg = 0;
+  document.getElementById('vProgBar').style.width = '0%';
+  const step = 100 / (5000 / 100);
+  vProgTimer = setInterval(() => {
+    vProg = Math.min(vProg + step, 100);
+    document.getElementById('vProgBar').style.width = vProg + '%';
+    if (vProg >= 100) { vIdx = (vIdx + 1) % vItems.length; renderViewer(); vProg = 0; }
+  }, 100);
+}
+
+function resetViewerAutoplay() {
+  clearInterval(vProgTimer);
+  if (autoplay) startViewerAutoplay();
+  else { vProg = 0; document.getElementById('vProgBar').style.width = '0%'; }
+}
+
+function toggleAutoplay() {
+  autoplay = !autoplay;
+  document.getElementById('apTrack').classList.toggle('on', autoplay);
+  if (autoplay) startViewerAutoplay();
+  else { clearInterval(vProgTimer); vProg = 0; document.getElementById('vProgBar').style.width = '0%'; }
+  toast(autoplay ? '▶ Autoplay ON' : '⏸ Autoplay OFF');
+}
+
+/* ========================================================
+   CATEGORY PAGE
+   ======================================================== */
+function openCatPage(key) {
+  const cat = CATS[key]; if (!cat) return;
+  currentCat = key;
+  setNavActive(key);
+
+  // Billboard
+  document.getElementById('cpBg').style.cssText = `position:absolute;inset:0;background:url('${cat.bg}') center/cover no-repeat;`;
+  document.getElementById('cpTag').style.setProperty('--color', cat.color);
+  document.getElementById('cpTag').textContent = cat.label;
+  document.getElementById('cpTitle').textContent = cat.label;
+  document.getElementById('cpSub').textContent = cat.sub;
+  document.getElementById('cpGridTitle').textContent = 'All ' + cat.label + ' Work';
+
+  // Grid
+  const grid = document.getElementById('cpGrid');
+  grid.innerHTML = '';
+  cat.items.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'cat-grid-item';
+    el.innerHTML = `
+      <img src="${item.thumb}" alt="${item.title}" loading="lazy"
+           onerror="this.style.background='var(--bg4)'">
+      <div class="cat-grid-overlay">
+        <div class="play-circle">
+          <svg viewBox="0 0 24 24" fill="#000"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="cat-grid-label">${item.title}</div>
+    `;
+    el.onclick = () => openViewer(key, i);
+    grid.appendChild(el);
+  });
+
+  document.getElementById('cat-page').classList.add('open');
+  document.getElementById('cat-page').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCatPage() {
+  document.getElementById('cat-page').classList.remove('open');
+  document.body.style.overflow = '';
+  currentCat = null;
+  setNavActive('home');
+}
+
+/* ========================================================
+   INFO MODAL
+   ======================================================== */
+function openInfo(catKey, idx, e) {
+  if (e) e.stopPropagation();
+  const cat  = CATS[catKey];
+  const item = cat.items[idx];
+  document.getElementById('infoHeroImg').src     = item.thumb;
+  document.getElementById('infoMatch').textContent  = item.match + '% Match';
+  document.getElementById('infoYear').textContent   = item.year;
+  document.getElementById('infoTitle').textContent  = item.title;
+  document.getElementById('infoDesc').textContent   = item.desc;
+  document.getElementById('infoCategory').textContent = cat.label;
+  document.getElementById('infoTags').textContent   = (item.tags||[]).join(', ');
+  document.getElementById('infoTools').textContent  = item.tools || '—';
+  document.getElementById('infoYearSide').textContent = item.year;
+  document.getElementById('infoPlayBtn').onclick = () => { closeInfo(); openViewer(catKey, idx); };
+  document.getElementById('info-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeInfo() {
+  document.getElementById('info-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ========================================================
+   NAVIGATION
+   ======================================================== */
+function goHome() {
+  closeCatPage();
+  setNavActive('home');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+/* ========================================================
+   TOAST
+   ======================================================== */
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+}
+
+// Click outside info modal to close
+document.getElementById('info-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeInfo();
+});
+// Add this inside the video setup
+videoElem.addEventListener('play', function() {
+  // If video is playing but black, force a frame
+  if (this.readyState >= 2) {
+    const canvas = document.createElement('canvas');
+    canvas.width = this.videoWidth;
+    canvas.height = this.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+    if (!this.poster) this.poster = canvas.toDataURL('image/jpeg');
+  }
+});
+</script>
+</body>
+</html>
