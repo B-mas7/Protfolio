@@ -159,7 +159,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© <span class="name-white">BIMARSHA</span> <span class="name-red">SHRESTHA</span> Creative. All rights reserved. Made in Lalitpur 🇳🇵</span>
+    <span class="footer-copyright">© <span class="name-white">BIMARSHA</span> <span class="name-red">SHRESTHA</span> Creative. All rights reserved. Made in Lalitpur 🇳🇵</span>
     <div class="footer-bottom-links">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
@@ -240,6 +240,28 @@
     <button class="viewer-nav next" onclick="viewNav(1)">&#10095;</button>
     <div class="viewer-progress-wrap"><div class="viewer-progress-bar" id="vProgBar" style="width:0%"></div></div>
   </div>
+
+  <!-- ===== CONTROLS BAR: Play/Pause, Progress, Fullscreen ===== -->
+  <div class="viewer-controls-bar">
+    <button class="vcb-btn" id="vcbPlayPause" onclick="toggleViewerPlayPause()" title="Play / Pause">
+      <svg id="vcbPauseIcon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      <svg id="vcbPlayIcon" viewBox="0 0 24 24" style="display:none;"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button class="vcb-btn" onclick="viewNav(-1)" title="Previous">
+      <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+    </button>
+    <button class="vcb-btn" onclick="viewNav(1)" title="Next">
+      <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+    </button>
+    <div class="vcb-progress-wrap" onclick="seekViewerProgress(event)" title="Click to seek">
+      <div class="vcb-progress-bar" id="vcbProgBar" style="width:0%"></div>
+    </div>
+    <span id="vcbCounter" style="color:#999;font-size:12px;flex-shrink:0;white-space:nowrap;">1 / 1</span>
+    <button class="vcb-fullscreen-btn" onclick="toggleViewerFullscreen()" title="Fullscreen">
+      <svg id="vcbFsIcon" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+    </button>
+  </div>
+
   <div class="viewer-filmstrip" id="vFilmstrip"></div>
 </div>
 
@@ -292,32 +314,32 @@ const CATS = {
        thumb:'1.mp4', poster:'thumnail1.png',
        tags:['Branding','After Effects'],tools:'After Effects · Cinema 4D',year:'',
        desc:'A complete brand animation reel showcasing logo reveals, kinetic typography, and seamless motion transitions.',match:97},
-      {id:'m2',title:'Logo Reveal Collection',
-       thumb:'2.mp4', poster:'thumbnail2.png',
+      {id:'m2',title:'',
+       thumb:'5.mp4', poster:'thumnail3.png',
        tags:['Logo','Reveal'],tools:'After Effects · Illustrator',year:'',
        desc:'Premium logo reveal animations with particle effects, 3D extrude, and liquid morphing techniques.',match:95},
-      {id:'m3',title:'UI Micro-Animations',
-       thumb:'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=600&q=80',
+      {id:'m3',title:'',
+       thumb:'3.mp4',poster:'thumnail4.png',
        tags:['UI/UX','Lottie'],tools:'After Effects · Lottie',year:'',
        desc:'Smooth, purposeful UI micro-interactions exported as Lottie JSON for web/app integration.',match:93},
-      {id:'m4',title:'Motion Design',
-       thumb:'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80',
+      {id:'m4',title:'Motion Graphics',
+       thumb:'2.mp4',poster:'thumnail2.png',
        tags:['Reel','Premium'],tools:'Premiere Pro · AE · C4D',year:'',
        desc:'Simple to Modern Motion Graphics 2D, 3D Motion both Design.',match:99,featured:true},
-      {id:'m5',title:'Particle System Art',
-       thumb:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',
+      {id:'m5',title:'',
+       thumb:'4.mp4',poster:'thumnail6.png',
        tags:['Generative','Art'],tools:'After Effects · Trapcode',year:'2023',
        desc:'Generative particle art motion pieces using Trapcode Suite for editorial and fashion clients.',match:91},
-      {id:'m6',title:'3D Title Sequences',
-       thumb:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80',
+      {id:'m6',title:'',
+       thumb:'6.mp4',poster:'thumnail5.png',
        tags:['3D','Cinema 4D'],tools:'Cinema 4D · Octane',year:'2023',
        desc:'Cinematic 3D title sequences for YouTube channels, brand films, and broadcast.',match:94},
-      {id:'m7',title:'Social Motion Pack',
-       thumb:'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80',
+      {id:'m7',title:'',
+       thumb:'8.mp4',poster:'thumnail7.png',
        tags:['Social','Instagram'],tools:'After Effects · Premiere',year:'',
        desc:'Full social media motion pack: Instagram stories, reels, YouTube intro/outro, and LinkedIn banners.',match:90},
-      {id:'m8',title:'Product Showcase Animations',
-       thumb:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80',
+      {id:'m8',title:'',
+       thumb:'9.mp4',poster:'thumnail8.png',
        tags:['Product','E-commerce'],tools:'Blender · After Effects',year:'',
        desc:'3D product showcase animations for e-commerce — 360° rotations, exploded views, and feature callouts.',match:92},
     ]
@@ -415,20 +437,18 @@ const HERO_ITEMS = [
 let heroIdx = 0, heroTimer = null;
 let autoplay = true;
 let vItems = [], vIdx = 0, vProgTimer = null, vProg = 0;
+let viewerPaused = false;
 let rowOffsets = {};
 let currentCat = null;
 
 /* ====================================================
-   HELPERS — detect video
+   HELPERS
    ==================================================== */
 function isVideoFile(src) {
   return src && (src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg'));
 }
-
-/* Get poster for a video item */
 function getPoster(item) {
   if (item.poster) return item.poster;
-  // Try to derive: 1.mp4 -> 1.jpg, etc.
   return item.thumb.replace(/\.(mp4|webm|ogg)$/i, '.jpg');
 }
 
@@ -477,6 +497,8 @@ document.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft')  viewNav(-1);
     if (e.key === 'ArrowRight') viewNav(1);
     if (e.key === 'Escape')     closeViewer();
+    if (e.key === ' ')          { e.preventDefault(); toggleViewerPlayPause(); }
+    if (e.key === 'f' || e.key === 'F') toggleViewerFullscreen();
   }
   if (document.getElementById('info-modal').classList.contains('open') && e.key === 'Escape') closeInfo();
   if (document.getElementById('cat-page').classList.contains('open') && e.key === 'Escape')   closeCatPage();
@@ -577,19 +599,16 @@ function buildAllRows() {
   const main = document.getElementById('main');
   main.querySelectorAll('.row:not(#row-continue)').forEach(r => r.remove());
 
-  // Featured
   const featured = [];
   Object.entries(CATS).forEach(([k, cat]) => {
     cat.items.filter(it => it.featured).forEach(it => featured.push({...it, _cat: k}));
   });
   if (featured.length) buildRow(main, '🔥 Top Picks for You', 'track-featured', featured);
 
-  // Per category
   Object.entries(CATS).forEach(([key, cat]) => {
     buildRow(main, cat.label, 'track-'+key, cat.items.map(it=>({...it,_cat:key})), key);
   });
 
-  // Spotlight
   const spotlight = Object.entries(CATS).map(([k,cat]) => ({...cat.items[0], _cat:k}));
   buildRow(main, '✦ Design Spotlight', 'track-spotlight', spotlight);
 }
@@ -617,7 +636,7 @@ function buildRow(container, title, trackId, items, catKey) {
 }
 
 /* ====================================================
-   MAKE CARD — Fixed video thumbnail + hover play
+   MAKE CARD — Thumbnail hover zoom only, NO text overlay
    ==================================================== */
 function makeCard(item, catKey, idx, itemsArray) {
   const card = document.createElement('div');
@@ -630,28 +649,21 @@ function makeCard(item, catKey, idx, itemsArray) {
   thumbWrap.className = 'card-thumb-wrap';
 
   if (isVid) {
-    // VIDEO card
     const video = document.createElement('video');
     video.className = 'card-video';
     video.src = item.thumb;
     video.muted = true;
     video.loop = true;
-    video.preload = 'none'; // don't load until hover
+    video.preload = 'none';
     video.playsInline = true;
     video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
     thumbWrap.appendChild(video);
 
-    // Poster overlay — sits on top, hidden on hover
     const posterEl = document.createElement('div');
     posterEl.className = 'card-poster-overlay';
     posterEl.style.backgroundImage = `url('${poster}')`;
     thumbWrap.appendChild(posterEl);
 
-    // Fallback: if poster fails, show colored bg
-    posterEl.style.background = `${posterEl.style.background || ''}, ${CATS[catKey]?.color || '#333'}33`;
-
-    // Hover: play video
     card.addEventListener('mouseenter', () => {
       video.preload = 'auto';
       video.play().catch(() => {});
@@ -661,7 +673,6 @@ function makeCard(item, catKey, idx, itemsArray) {
       video.currentTime = 0;
     });
   } else {
-    // IMAGE card
     const img = document.createElement('img');
     img.className = 'card-img';
     img.src = item.thumb;
@@ -670,40 +681,13 @@ function makeCard(item, catKey, idx, itemsArray) {
     thumbWrap.appendChild(img);
   }
 
-  // Popup
-  const popup = document.createElement('div');
-  popup.className = 'card-popup';
-  popup.innerHTML = `
-    <div class="card-popup-body">
-      <div class="card-popup-actions">
-        <button class="cp-btn primary" onclick="openViewer('${catKey}',${idx},event)">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <button class="cp-btn" onclick="openInfo('${catKey}',${idx},event)">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-        </button>
-        <div class="cp-spacer"></div>
-        <button class="cp-btn chev" onclick="openInfo('${catKey}',${idx},event)">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </button>
-      </div>
-      <div class="card-popup-title">${item.title || ''}</div>
-      <div class="card-popup-meta">
-        <span class="meta-match">${item.match}% Match</span>
-        <span class="meta-hd">HD</span>
-      </div>
-      <div class="card-popup-tags">${(item.tags||[]).map(t=>`<span class="card-popup-tag">${t}</span>`).join('')}</div>
-    </div>
-  `;
-
   card.appendChild(thumbWrap);
-  card.appendChild(popup);
-  card.addEventListener('click', (e) => { if (!e.target.closest('.cp-btn')) openViewer(catKey, idx); });
+  card.addEventListener('click', () => openViewer(catKey, idx));
   return card;
 }
 
 /* ====================================================
-   ROW SLIDING — Fixed to show all items
+   ROW SLIDING
    ==================================================== */
 function slideRow(trackId, dir) {
   const track = document.getElementById(trackId);
@@ -712,8 +696,8 @@ function slideRow(trackId, dir) {
   const cardEl = track.querySelector('.card, .card-continue');
   if (!cardEl) return;
 
-  const cardW = cardEl.offsetWidth + 8; // gap = 8px
-  const wrapW = wrap.offsetWidth - 96; // subtract arrow widths (48px each side)
+  const cardW = cardEl.offsetWidth + 8;
+  const wrapW = wrap.offsetWidth - 96;
   const visibleCount = Math.max(1, Math.floor(wrapW / cardW));
   const total = track.children.length;
   const maxOffset = Math.max(0, total - visibleCount);
@@ -748,7 +732,7 @@ function buildContinueRow() {
 
     const thumbWrap = document.createElement('div');
     thumbWrap.className = 'card-thumb-wrap';
-    thumbWrap.style.borderRadius = '6px';
+    thumbWrap.style.borderRadius = '8px';
 
     if (isVid) {
       const video = document.createElement('video');
@@ -796,12 +780,14 @@ function openViewer(catKey, idx, e) {
   clearInterval(heroTimer);
   vItems = CATS[catKey].items;
   vIdx = idx;
+  viewerPaused = false;
   document.getElementById('vCatLabel').textContent = CATS[catKey].label;
   addContinue(catKey, vItems[idx].id);
   renderViewer();
   document.getElementById('viewer').classList.add('open');
   document.body.style.overflow = 'hidden';
   if (autoplay) startViewerAutoplay();
+  updateViewerControls();
 }
 
 function renderViewer() {
@@ -809,7 +795,6 @@ function renderViewer() {
   document.getElementById('vTitle').textContent = item.title || '';
   const stage = document.querySelector('.viewer-stage');
 
-  // Remove old media
   const oldImg = document.getElementById('vImg');
   const oldVid = document.getElementById('vPlayer');
   if (oldVid) oldVid.remove();
@@ -821,7 +806,7 @@ function renderViewer() {
     video.src = item.thumb;
     video.poster = getPoster(item);
     video.autoplay = true;
-    video.controls = true;
+    video.controls = false; // we use our own controls
     video.style.cssText = 'max-width:100%;max-height:100%;border-radius:8px;background:#000;display:block;';
     const nextBtn = stage.querySelector('.viewer-nav.next');
     stage.insertBefore(video, nextBtn);
@@ -839,7 +824,9 @@ function renderViewer() {
     tmp.onload = () => { img.src = item.thumb; img.classList.remove('loading'); };
     tmp.src = item.thumb;
   }
+
   buildFilmstrip();
+  updateViewerCounter();
 }
 
 function buildFilmstrip() {
@@ -862,40 +849,128 @@ function buildFilmstrip() {
 function viewNav(dir) {
   vIdx = (vIdx + dir + vItems.length) % vItems.length;
   renderViewer(); resetViewerAutoplay();
+  updateViewerControls();
 }
+
 function closeViewer() {
   document.getElementById('viewer').classList.remove('open');
   document.body.style.overflow = '';
   clearInterval(vProgTimer);
   const vid = document.getElementById('vPlayer');
   if (vid) { vid.pause(); vid.remove(); }
+  if (document.fullscreenElement) document.exitFullscreen().catch(()=>{});
   heroTimer = setInterval(advanceHero, 7000);
 }
+
+/* ===== AUTOPLAY ===== */
 function startViewerAutoplay() {
+  if (viewerPaused) return;
   clearInterval(vProgTimer); vProg = 0;
-  document.getElementById('vProgBar').style.width = '0%';
-  const step = 100 / (5000 / 100);
+  updateVcbProgress(0);
+  const step = 100 / (6000 / 100);
   vProgTimer = setInterval(() => {
+    if (viewerPaused) return;
     vProg = Math.min(vProg + step, 100);
-    document.getElementById('vProgBar').style.width = vProg + '%';
-    if (vProg >= 100) { vIdx = (vIdx + 1) % vItems.length; renderViewer(); vProg = 0; }
+    updateVcbProgress(vProg);
+    if (vProg >= 100) { vIdx = (vIdx + 1) % vItems.length; renderViewer(); vProg = 0; updateViewerControls(); }
   }, 100);
 }
+
 function resetViewerAutoplay() {
   clearInterval(vProgTimer);
-  if (autoplay) startViewerAutoplay();
-  else { vProg = 0; document.getElementById('vProgBar').style.width = '0%'; }
+  if (autoplay && !viewerPaused) startViewerAutoplay();
+  else updateVcbProgress(0);
 }
+
 function toggleAutoplay() {
   autoplay = !autoplay;
   document.getElementById('apTrack').classList.toggle('on', autoplay);
-  if (autoplay) startViewerAutoplay();
-  else { clearInterval(vProgTimer); vProg = 0; document.getElementById('vProgBar').style.width = '0%'; }
+  if (autoplay && !viewerPaused) startViewerAutoplay();
+  else { clearInterval(vProgTimer); updateVcbProgress(0); }
   toast(autoplay ? '▶ Autoplay ON' : '⏸ Autoplay OFF');
 }
 
+/* ===== NEW: Play/Pause in viewer ===== */
+function toggleViewerPlayPause() {
+  viewerPaused = !viewerPaused;
+  if (viewerPaused) {
+    clearInterval(vProgTimer);
+  } else {
+    if (autoplay) startViewerAutoplay();
+  }
+  // Toggle native video if present
+  const vid = document.getElementById('vPlayer');
+  if (vid) {
+    if (viewerPaused) vid.pause();
+    else vid.play().catch(()=>{});
+  }
+  updateViewerControls();
+  toast(viewerPaused ? '⏸ Paused' : '▶ Playing');
+}
+
+/* ===== NEW: Fullscreen ===== */
+function toggleViewerFullscreen() {
+  const viewerEl = document.getElementById('viewer');
+  if (!document.fullscreenElement) {
+    viewerEl.requestFullscreen().catch(err => toast('Fullscreen error: ' + err.message));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Update fullscreen icon based on state
+document.addEventListener('fullscreenchange', () => {
+  const icon = document.getElementById('vcbFsIcon');
+  if (!icon) return;
+  if (document.fullscreenElement) {
+    icon.innerHTML = '<path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>';
+  } else {
+    icon.innerHTML = '<path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>';
+  }
+});
+
+/* ===== Seek by clicking progress bar ===== */
+function seekViewerProgress(e) {
+  const bar = e.currentTarget;
+  const rect = bar.getBoundingClientRect();
+  const pct = Math.max(0, Math.min(100, (e.clientX - rect.left) / rect.width * 100));
+  vProg = pct;
+  updateVcbProgress(pct);
+  if (!viewerPaused && autoplay) {
+    // Adjust timer to match the seek position
+    clearInterval(vProgTimer);
+    const step = 100 / (6000 / 100);
+    vProgTimer = setInterval(() => {
+      if (viewerPaused) return;
+      vProg = Math.min(vProg + step, 100);
+      updateVcbProgress(vProg);
+      if (vProg >= 100) { vIdx = (vIdx + 1) % vItems.length; renderViewer(); vProg = 0; updateViewerControls(); }
+    }, 100);
+  }
+}
+
+function updateVcbProgress(pct) {
+  const bar = document.getElementById('vcbProgBar');
+  if (bar) bar.style.width = pct + '%';
+}
+
+function updateViewerControls() {
+  const pauseIcon = document.getElementById('vcbPauseIcon');
+  const playIcon = document.getElementById('vcbPlayIcon');
+  if (pauseIcon && playIcon) {
+    pauseIcon.style.display = viewerPaused ? 'none' : '';
+    playIcon.style.display = viewerPaused ? '' : 'none';
+  }
+  updateViewerCounter();
+}
+
+function updateViewerCounter() {
+  const el = document.getElementById('vcbCounter');
+  if (el) el.textContent = `${vIdx + 1} / ${vItems.length}`;
+}
+
 /* ====================================================
-   CATEGORY PAGE — Fixed grid with video support
+   CATEGORY PAGE
    ==================================================== */
 function openCatPage(key) {
   const cat = CATS[key]; if (!cat) return;
@@ -920,7 +995,6 @@ function openCatPage(key) {
     const poster = isVid ? getPoster(item) : item.thumb;
 
     if (isVid) {
-      // Video in grid: show poster by default, play on hover
       const video = document.createElement('video');
       video.className = 'cat-grid-video';
       video.src = item.thumb;
@@ -933,33 +1007,32 @@ function openCatPage(key) {
       posterDiv.style.backgroundImage = `url('${poster}')`;
       el.appendChild(posterDiv);
 
-      el.addEventListener('mouseenter', () => { video.preload='auto'; video.play().catch(()=>{}); });
-      el.addEventListener('mouseleave', () => { video.pause(); video.currentTime=0; });
+      // Overlay (play button only, no text)
+      const overlay = document.createElement('div');
+      overlay.className = 'cat-grid-overlay';
+      overlay.innerHTML = `<div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>`;
+      el.appendChild(overlay);
+
+      el.addEventListener('mouseenter', () => {
+        video.preload='auto'; video.play().catch(()=>{});
+        posterDiv.style.opacity='0';
+      });
+      el.addEventListener('mouseleave', () => {
+        video.pause(); video.currentTime=0;
+        posterDiv.style.opacity='1';
+      });
     } else {
       const img = document.createElement('img');
       img.src = item.thumb; img.alt = item.title||''; img.loading = 'lazy';
       el.appendChild(img);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'cat-grid-overlay';
+      overlay.innerHTML = `<div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>`;
+      el.appendChild(overlay);
     }
 
-    // Overlay
-    el.innerHTML += `
-      <div class="cat-grid-overlay">
-        <div class="play-circle">
-          <svg viewBox="0 0 24 24" fill="#000"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="cat-grid-label">${item.title||''}</div>
-    `;
     el.onclick = () => openViewer(key, i);
-
-    // Re-attach video events (innerHTML wipes them)
-    if (isVid) {
-      const vid = el.querySelector('.cat-grid-video');
-      const pst = el.querySelector('.cat-grid-poster');
-      el.addEventListener('mouseenter', () => { vid.preload='auto'; vid.play().catch(()=>{}); if(pst) pst.style.opacity='0'; });
-      el.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime=0; if(pst) pst.style.opacity='1'; });
-    }
-
     grid.appendChild(el);
   });
 
@@ -967,14 +1040,12 @@ function openCatPage(key) {
   document.getElementById('cat-page').scrollTop = 0;
   document.body.style.overflow = 'hidden';
 
-  // Sync theme buttons
   const theme = document.documentElement.getAttribute('data-theme');
   document.getElementById('cat-btn-dark')?.classList.toggle('active', theme==='dark');
   document.getElementById('cat-btn-light')?.classList.toggle('active', theme==='light');
 }
 
 function closeCatPage() {
-  // Stop any playing grid videos
   document.querySelectorAll('#cpGrid video').forEach(v => { v.pause(); v.currentTime=0; });
   document.getElementById('cat-page').classList.remove('open');
   document.body.style.overflow = '';
