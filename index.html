@@ -910,9 +910,13 @@ function toggleViewerPlayPause() {
 
 /* ===== NEW: Fullscreen ===== */
 function toggleViewerFullscreen() {
-  const viewerEl = document.getElementById('viewer');
+  const videoEl = document.getElementById('vPlayer');  // your video element
   if (!document.fullscreenElement) {
-    viewerEl.requestFullscreen().catch(err => toast('Fullscreen error: ' + err.message));
+    if (videoEl && videoEl.requestFullscreen) {
+      videoEl.requestFullscreen().catch(err => toast('Fullscreen error: ' + err.message));
+    } else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen(); // fallback
+    }
   } else {
     document.exitFullscreen();
   }
