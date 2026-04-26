@@ -117,6 +117,9 @@ button { cursor: pointer; font-family: inherit; }
   pointer-events: none;
 }
 
+
+
+
 /* ===================== NAVBAR ===================== */
 #navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
@@ -373,6 +376,58 @@ button { cursor: pointer; font-family: inherit; }
 .row-track {
   display: flex; gap: 8px;
   transition: transform 0.5s cubic-bezier(.25,.46,.45,.94);
+}
+
+.view-toggle {
+  display: flex;
+  gap: 4px;
+  background: #2a2a2a;
+  border-radius: 24px;
+  padding: 2px;
+  margin-left: 10px;
+}
+
+.view-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: 0.2s;
+  color: #fff;
+}
+
+[data-theme="light"] .view-btn {
+  color: #333;
+}
+
+.view-btn.active {
+  background: #e50914;
+  color: white;
+}
+
+// Add minimal view CSS
+body.minimal-view .row {
+  margin-bottom: 2rem;
+}
+
+body.minimal-view .card {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+body.minimal-view .card-thumb-wrap:hover {
+  transform: scale(1.02);
+}
+
+body.minimal-view .hero-btns .btn-play {
+  background: #0078FF;
+}
+
+body.minimal-view .hero-btns .btn-play:hover {
+  background: #0050aa;
 }
 
 /* ===================== CARDS — THUMBNAIL HOVER ONLY ===================== */
