@@ -916,6 +916,39 @@ body.minimal-view .hero-btns .btn-play:hover {
 .info-side-label { color: var(--text4); }
 .info-side-val { color: var(--text2); }
 
+
+#cat-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px; left: 0; right: 0;
+  z-index: 699;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 4% 20px;
+  flex-direction: column;
+  gap: 4px;
+}
+#cat-mobile-menu.open { display: flex; }
+#cat-mobile-menu a {
+  font-size: 15px; color: var(--text3); font-weight: 500;
+  padding: 10px 12px; border-radius: 8px;
+  transition: color var(--t), background var(--t);
+  display: block;
+}
+#cat-mobile-menu a:hover,
+#cat-mobile-menu a.active { color: var(--text); background: var(--border); }
+
+@media (min-width: 901px) {
+  #cat-hamburger-btn { display: none; }
+  #cat-mobile-menu { display: none !important; }
+}
+#cat-hamburger-btn { display: none; }
+@media (max-width: 900px) {
+  #cat-hamburger-btn { display: flex; }
+}
+
 /* ===================== TOAST ===================== */
 #toast {
   position: fixed; bottom: 6%; right: 4%; z-index: 9998;

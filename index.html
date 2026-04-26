@@ -150,7 +150,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copyright">© <span class="name-white">BIMARSHA</span> <span class="name-red">SHRESTHA</span> Creative. All rights reserved. Made in Lalitpur 🇳🇵</span>
+    <span class="footer-copyright">© <span class="name-white">BIMARSHA</span> <span class="name-red">SHRESTHA</span>. All rights reserved. Made in Lalitpur 🇳🇵</span>
     <div class="footer-bottom-links">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
@@ -176,17 +176,30 @@
         <li><a href="#" onclick="openCatPage('software');return false;" id="cnl-software">Software</a></li>
       </ul>
     </div>
-    <div class="cat-nav-right">
-      <div class="theme-toggle" onclick="toggleTheme()">
-        <button class="theme-btn" id="cat-btn-dark">🌙</button>
-        <button class="theme-btn" id="cat-btn-light">☀️</button>
-      </div>
-    </div>
-    <div class="view-toggle" onclick="toggleViewStyle()" title="Switch view">
-      <button class="view-btn active" id="view-netflix">🎬 Netflix</button>
-      <button class="view-btn" id="view-minimal">✨ Minimal</button>
-    </div>
-  </nav>
+ 
+
+<div class="cat-nav-right">
+  <div class="view-toggle" onclick="toggleViewStyle()" title="Switch view">
+    <button class="view-btn active" id="view-netflix">🎬 Netflix</button>
+    <button class="view-btn" id="view-minimal">✨ Minimal</button>
+  </div>
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <button class="theme-btn" id="cat-btn-dark">🌙</button>
+    <button class="theme-btn" id="cat-btn-light">☀️</button>
+  </div>
+  <button class="nav-hamburger" id="cat-hamburger-btn" onclick="toggleCatMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+</nav>
+
+  <div id="cat-mobile-menu">
+  <a href="#" onclick="goHome();closeCatMobileMenu();return false;">🏠 Home</a>
+  <a href="#" onclick="openCatPage('motion');closeCatMobileMenu();return false;" id="cmm-motion">🎬 Motion/Video Editing</a>
+  <a href="#" onclick="openCatPage('graphic');closeCatMobileMenu();return false;" id="cmm-graphic">🎨 Graphic Design</a>
+  <a href="#" onclick="openCatPage('web');closeCatMobileMenu();return false;" id="cmm-web">💻 Web Dev</a>
+  <a href="#" onclick="openCatPage('software');closeCatMobileMenu();return false;" id="cmm-software">⚙️ Software Dev</a>
+</div>
 
   <div class="cat-billboard">
     <div class="cat-bb-bg" id="cpBg"></div>
@@ -210,7 +223,7 @@
       <a href="tel:+9779866551446">📞 +977 98-66551446</a>
       <a href="https://wa.me/9779866551446" target="_blank">💬 WhatsApp</a>
     </div>
-    <span>© BIMARSHA SHRESTHA Creative · Lalitpur 🇳🇵</span>
+    <span>© BIMARSHA SHRESTHA · Lalitpur 🇳🇵</span>
   </footer>
 </div>
 
@@ -515,6 +528,15 @@ function toggleTheme() {
   applyTheme(cur === 'dark' ? 'light' : 'dark');
   toast(cur === 'dark' ? '☀️ Light mode' : '🌙 Dark mode');
 }
+
+
+function toggleCatMobileMenu() {
+  document.getElementById('cat-mobile-menu').classList.toggle('open');
+}
+function closeCatMobileMenu() {
+  document.getElementById('cat-mobile-menu').classList.remove('open');
+}
+
 
 // ===== TOAST =====
 let toastTimer;
@@ -1024,11 +1046,18 @@ function closeInfo() {
 
 // ===== NAVIGATION =====
 function setNavActive(key) {
+  // Main navbar
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   if (key === 'home') document.getElementById('nl-home')?.classList.add('active');
   else document.getElementById('nl-'+key)?.classList.add('active');
+
+  // Cat page desktop nav links
   document.querySelectorAll('.cat-nav-links a').forEach(a => a.classList.remove('active'));
   if (key && key !== 'home') document.getElementById('cnl-'+key)?.classList.add('active');
+
+  // Cat page mobile menu links
+  document.querySelectorAll('#cat-mobile-menu a').forEach(a => a.classList.remove('active'));
+  if (key && key !== 'home') document.getElementById('cmm-'+key)?.classList.add('active');
 }
 
 function goHome() {
