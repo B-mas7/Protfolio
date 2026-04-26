@@ -105,11 +105,11 @@
       </span>
       <p>Creative professional specializing in Motion Design, Graphic Design, Video Editing, Web & Software Development, and Digital Marketing. Based in Lalitpur Nepal.</p>
       <div class="footer-contact">
-        <a class="footer-contact-item" href="tel:+9779849403476">
+        <a class="footer-contact-item" href="tel:+9779866551446">
           <div class="footer-contact-icon fc-phone">📞</div>
-          <span>+977 98-49403476</span>
+          <span>+977 9866551446</span>
         </a>
-        <a class="footer-contact-item" href="https://wa.me/9779849403476" target="_blank" rel="noopener">
+        <a class="footer-contact-item" href="https://wa.me/9779866551446" target="_blank" rel="noopener">
           <div class="footer-contact-icon fc-wa">💬</div>
           <span>WhatsApp Chat</span>
         </a>
@@ -540,17 +540,15 @@ function renderViewer() {
   const item = vItems[vIdx];
   document.getElementById('vTitle').textContent    = item.title || '';
   document.getElementById('vCatLabel').textContent = CATS[currentCat]?.label || '';
+
   const stage = document.querySelector('.viewer-stage');
 
-  const oldVid     = document.getElementById('vPlayer');
-  const oldYouTube = document.getElementById('vYouTube');
-  const oldImg     = document.getElementById('vImg');
-  if (oldVid)     oldVid.remove();
-  if (oldYouTube) oldYouTube.remove();
-  if (oldImg)     oldImg.style.display = 'none';
+  // Remove ALL previous media elements cleanly
+  stage.querySelectorAll('img.viewer-img, video#vPlayer, #vYouTube').forEach(el => el.remove());
 
   const progressWrap = document.querySelector('.vcb-progress-wrap');
   const playPauseBtn = document.getElementById('vcbPlayPause');
+  const prevBtn = stage.querySelector('.viewer-nav.prev');
 
   if (isYouTubeVideo(item)) {
     if (progressWrap) progressWrap.style.opacity = '0.3';
@@ -558,20 +556,17 @@ function renderViewer() {
 
     const ytContainer = document.createElement('div');
     ytContainer.id = 'vYouTube';
-    ytContainer.style.cssText = 'width:100%;height:100%;position:relative;';
 
     const embedUrl = `https://www.youtube-nocookie.com/embed/${item.youtubeId}?autoplay=0&enablejsapi=1&controls=1&rel=0&modestbranding=1&playsinline=1`;
     const iframe   = document.createElement('iframe');
     iframe.src     = embedUrl;
-    iframe.style.cssText = 'width:100%;height:100%;border:none;border-radius:12px;background:#000;';
-    iframe.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    iframe.allow   = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
     iframe.allowFullscreen = true;
     iframe.onerror = () => {
       ytContainer.innerHTML = `
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;background:#000;color:#fff;text-align:center;padding:20px;">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="#e50914" style="margin-bottom:20px;"><path d="M10 15l5.5-3L10 9v6zm10-3c0 4.41-3.59 8-8 8s-8-3.59-8-8 3.59-8 8-8 8 3.59 8 8z"/></svg>
           <h3>Cannot play this video here</h3>
-          <p>This video has embedding disabled or is restricted.</p>
+          <p>Embedding is disabled for this video.</p>
           <a href="https://www.youtube.com/watch?v=${item.youtubeId}" target="_blank"
              style="background:#e50914;color:white;padding:10px 20px;border-radius:4px;text-decoration:none;margin-top:15px;display:inline-block;">
             Watch on YouTube →
@@ -579,29 +574,30 @@ function renderViewer() {
         </div>`;
     };
     ytContainer.appendChild(iframe);
-    stage.insertBefore(ytContainer, stage.querySelector('.viewer-nav.next'));
+    stage.insertBefore(ytContainer, prevBtn);
 
   } else if (isVideoFile(item.thumb)) {
     if (progressWrap) progressWrap.style.opacity = '1';
     if (playPauseBtn) playPauseBtn.style.opacity  = '1';
-    const video = document.createElement('video');
-    video.id = 'vPlayer';
-    video.src = item.thumb;
-    video.poster   = getPoster(item);
-    video.autoplay = true;
-    video.controls = false;
-    video.style.cssText = 'max-width:100%;max-height:100%;border-radius:12px;background:#000;display:block;';
-    stage.insertBefore(video, stage.querySelector('.viewer-nav.next'));
+
+    const video       = document.createElement('video');
+    video.id          = 'vPlayer';
+    video.src         = item.thumb;
+    video.poster      = getPoster(item);
+    video.autoplay    = true;
+    video.controls    = false;
+    video.playsInline = true;
+    stage.insertBefore(video, prevBtn);
 
   } else {
     if (progressWrap) progressWrap.style.opacity = '1';
     if (playPauseBtn) playPauseBtn.style.opacity  = '1';
-    const img = document.createElement('img');
-    img.id        = 'vImg';
-    img.className = 'viewer-img';
-    img.src       = item.thumb;
-    img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;';
-    stage.insertBefore(img, stage.querySelector('.viewer-nav.next'));
+
+    const img       = document.createElement('img');
+    img.className   = 'viewer-img';
+    img.src         = item.thumb;
+    img.alt         = item.title || '';
+    stage.insertBefore(img, prevBtn);
   }
 
   buildFilmstrip();
@@ -985,6 +981,14 @@ document.getElementById('cpTitle').textContent = cat.label.replace(/\s*\d+$/, ''
 
   document.getElementById('cat-page').classList.add('open');
   document.body.style.overflow = 'hidden';
+  // ADD THIS — scroll listener for cat-page navbar transparency
+  const catPage = document.getElementById('cat-page');
+  const catNav  = document.querySelector('.cat-navbar');
+  catNav.classList.remove('scrolled'); // always reset to transparent on open
+
+  catPage.onscroll = () => {
+    catNav.classList.toggle('scrolled', catPage.scrollTop > 60);
+  };
 }
 
 function closeCatPage() {
