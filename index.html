@@ -934,7 +934,7 @@ function openCatPage(key) {
   const tag = document.getElementById('cpTag');
   tag.style.setProperty('--color', cat.color);
   tag.textContent = cat.label.replace(/\s*\d+$/, '');
-document.getElementById('cpTitle').textContent = cleanLabel(cat.label);
+document.getElementById('cpTitle').textContent = cat.label.replace(/\s*\d+$/, '');
   document.getElementById('cpSub').textContent = cat.sub;
   document.getElementById('cpGridTitle').textContent = 'All ' + cat.label.replace(/\d+$/, '').trim() + ' Work';
 
