@@ -36,12 +36,10 @@
     </div>
     <ul class="nav-links">
       <li><a href="#" onclick="goHome();return false;" id="nl-home" class="active">Home</a></li>
-      <li><a href="#" onclick="openCatPage('motion');return false;" id="nl-motion">Motion</a></li>
+      <li><a href="#" onclick="openCatPage('motion');return false;" id="nl-motion">Motion/Video Editing</a></li>
       <li><a href="#" onclick="openCatPage('graphic');return false;" id="nl-graphic">Graphic</a></li>
-      <li><a href="#" onclick="openCatPage('video');return false;" id="nl-video">Video</a></li>
       <li><a href="#" onclick="openCatPage('web');return false;" id="nl-web">Web Dev</a></li>
       <li><a href="#" onclick="openCatPage('software');return false;" id="nl-software">Software</a></li>
-      <li><a href="#" onclick="openCatPage('marketing');return false;" id="nl-marketing">Marketing</a></li>
     </ul>
   </div>
   <div class="nav-right">
@@ -55,12 +53,10 @@
     <div class="nav-avatar" title="BIMARSHA SHRESTHA">D
       <div class="avatar-dropdown">
         <a onclick="goHome()">🏠 Home</a>
-        <a onclick="openCatPage('motion')">🎬 Motion Design</a>
+        <a onclick="openCatPage('motion')">🎬 Motion/Video Editing</a>
         <a onclick="openCatPage('graphic')">🎨 Graphic Design</a>
-        <a onclick="openCatPage('video')">🎞 Video Editing</a>
         <a onclick="openCatPage('web')">💻 Web Dev</a>
         <a onclick="openCatPage('software')">⚙️ Software Dev</a>
-        <a onclick="openCatPage('marketing')">📊 Marketing</a>
         <hr>
         <a onclick="toggleTheme()">🌓 Toggle Theme</a>
         <a onclick="toast('⚙️ Settings coming soon!')">Account Settings</a>
@@ -72,12 +68,10 @@
 <!-- Mobile Menu -->
 <div id="mobile-menu">
   <a href="#" onclick="goHome();closeMobileMenu();return false;" class="active">🏠 Home</a>
-  <a href="#" onclick="openCatPage('motion');closeMobileMenu();return false;">🎬 Motion Design</a>
+  <a href="#" onclick="openCatPage('motion');closeMobileMenu();return false;">🎬 Motion/Video Editing</a>
   <a href="#" onclick="openCatPage('graphic');closeMobileMenu();return false;">🎨 Graphic Design</a>
-  <a href="#" onclick="openCatPage('video');closeMobileMenu();return false;">🎞 Video Editing</a>
   <a href="#" onclick="openCatPage('web');closeMobileMenu();return false;">💻 Web Dev</a>
   <a href="#" onclick="openCatPage('software');closeMobileMenu();return false;">⚙️ Software Dev</a>
-  <a href="#" onclick="openCatPage('marketing');closeMobileMenu();return false;">📊 Marketing</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -129,23 +123,20 @@
     <div class="footer-col">
       <h4>Portfolio</h4>
       <ul>
-        <li><a href="#" onclick="openCatPage('motion');return false;">Motion Design</a></li>
+        <li><a href="#" onclick="openCatPage('motion');return false;">Motion/Video Editing</a></li>
         <li><a href="#" onclick="openCatPage('graphic');return false;">Graphic Design</a></li>
-        <li><a href="#" onclick="openCatPage('video');return false;">Video Editing</a></li>
         <li><a href="#" onclick="openCatPage('web');return false;">Web Development</a></li>
         <li><a href="#" onclick="openCatPage('software');return false;">Software Dev</a></li>
-        <li><a href="#" onclick="openCatPage('marketing');return false;">Marketing</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#">Brand Identity</a></li>
-        <li><a href="#">Logo Animation</a></li>
-        <li><a href="#">Video Production</a></li>
-        <li><a href="#">Web Apps</a></li>
-        <li><a href="#">SEO & Growth</a></li>
-        <li><a href="#">YouTube Growth</a></li>
+        <li><a href="#">Graphic Design</a></li>
+        <li><a href="#">Motion Graphics</a></li>
+        <li><a href="#">Video Editing</a></li>
+        <li><a href="#">Web site Development</a></li>
+        <li><a href="#">Software</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -179,12 +170,10 @@
       <div class="cat-logo" onclick="goHome()">BS</div>
       <ul class="cat-nav-links" id="cat-nav-links">
         <li><a href="#" onclick="goHome();return false;">Home</a></li>
-        <li><a href="#" onclick="openCatPage('motion');return false;" id="cnl-motion">Motion</a></li>
+        <li><a href="#" onclick="openCatPage('motion');return false;" id="cnl-motion">Motion/Video Editing</a></li>
         <li><a href="#" onclick="openCatPage('graphic');return false;" id="cnl-graphic">Graphic</a></li>
-        <li><a href="#" onclick="openCatPage('video');return false;" id="cnl-video">Video</a></li>
         <li><a href="#" onclick="openCatPage('web');return false;" id="cnl-web">Web Dev</a></li>
         <li><a href="#" onclick="openCatPage('software');return false;" id="cnl-software">Software</a></li>
-        <li><a href="#" onclick="openCatPage('marketing');return false;" id="cnl-marketing">Marketing</a></li>
       </ul>
     </div>
     <div class="cat-nav-right">
@@ -192,6 +181,10 @@
         <button class="theme-btn" id="cat-btn-dark">🌙</button>
         <button class="theme-btn" id="cat-btn-light">☀️</button>
       </div>
+    </div>
+    <div class="view-toggle" onclick="toggleViewStyle()" title="Switch view">
+      <button class="view-btn active" id="view-netflix">🎬 Netflix</button>
+      <button class="view-btn" id="view-minimal">✨ Minimal</button>
     </div>
   </nav>
 
@@ -241,7 +234,7 @@
     <div class="viewer-progress-wrap"><div class="viewer-progress-bar" id="vProgBar" style="width:0%"></div></div>
   </div>
 
-  <!-- ===== CONTROLS BAR: Play/Pause, Progress, Fullscreen ===== -->
+  <!-- ===== CONTROLS BAR ===== -->
   <div class="viewer-controls-bar">
     <button class="vcb-btn" id="vcbPlayPause" onclick="toggleViewerPlayPause()" title="Play / Pause">
       <svg id="vcbPauseIcon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
@@ -302,159 +295,209 @@
 
 <script>
 /* ====================================================
-   DATA
+   COMPLETE SCRIPT — Video Editing merged into Motion
    ==================================================== */
-const CATS = {
-  motion:{
-    label:'Motion Design', color:'#E50914',
-    bg:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80',
-    sub:'Bringing ideas to life through animation & motion',
-    items:[
-      {id:'m1',title:'Brand Animation Reel',
-       thumb:'1.mp4', poster:'thumnail1.png',
-       tags:['Branding','After Effects'],tools:'After Effects · Cinema 4D',year:'',
-       desc:'A complete brand animation reel showcasing logo reveals, kinetic typography, and seamless motion transitions.',match:97},
-      {id:'m2',title:'',
-       thumb:'5.mp4', poster:'thumnail3.png',
-       tags:['Logo','Reveal'],tools:'After Effects · Illustrator',year:'',
-       desc:'Premium logo reveal animations with particle effects, 3D extrude, and liquid morphing techniques.',match:95},
-      {id:'m3',title:'',
-       thumb:'3.mp4',poster:'thumnail4.png',
-       tags:['UI/UX','Lottie'],tools:'After Effects · Lottie',year:'',
-       desc:'Smooth, purposeful UI micro-interactions exported as Lottie JSON for web/app integration.',match:93},
-      {id:'m4',title:'Motion Graphics',
-       thumb:'2.mp4',poster:'thumnail2.png',
-       tags:['Reel','Premium'],tools:'Premiere Pro · AE · C4D',year:'',
-       desc:'Simple to Modern Motion Graphics 2D, 3D Motion both Design.',match:99,featured:true},
-      {id:'m5',title:'',
-       thumb:'4.mp4',poster:'thumnail6.png',
-       tags:['Generative','Art'],tools:'After Effects · Trapcode',year:'2023',
-       desc:'Generative particle art motion pieces using Trapcode Suite for editorial and fashion clients.',match:91},
-      {id:'m6',title:'',
-       thumb:'6.mp4',poster:'thumnail5.png',
-       tags:['3D','Cinema 4D'],tools:'Cinema 4D · Octane',year:'2023',
-       desc:'Cinematic 3D title sequences for YouTube channels, brand films, and broadcast.',match:94},
-      {id:'m7',title:'',
-       thumb:'8.mp4',poster:'thumnail7.png',
-       tags:['Social','Instagram'],tools:'After Effects · Premiere',year:'',
-       desc:'Full social media motion pack: Instagram stories, reels, YouTube intro/outro, and LinkedIn banners.',match:90},
-      {id:'m8',title:'',
-       thumb:'9.mp4',poster:'thumnail8.png',
-       tags:['Product','E-commerce'],tools:'Blender · After Effects',year:'',
-       desc:'3D product showcase animations for e-commerce — 360° rotations, exploded views, and feature callouts.',match:92},
-    ]
+
+// ===== FILE LISTS =====
+// motion now contains both motion mp4s AND former video editing files
+const FILE_LISTS = {
+  motion: [
+    '1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4', '7.mp4', '8.mp4', '9.mp4', '10.mp4','12.mp4','13.mp4','14.mp4'
+  ],
+  graphic: [
+    '1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.png', '7.png', '8.png', '9.png', '10.png',
+    '11.png', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png',
+    '21.png', '22.png', '23.png', '24.png', '25.png', '26.png', '27.png', '28.png', '29.png', '30.png', '31.png'
+  ],
+  web: [
+    'web1.png', 'web2.png', 'web3.png', 'web4.png', 'web5.png', 'web6.png','web7.png','web8.png','web9.png'
+  ],
+  software: [
+    'software1.png', 'software2.png', 'software3.png', 'software4.png', 'software5.png', 
+    'software6.png', 'software7.png', 'software8.png', 'software9.png', 'software10.png'
+  ],
+  marketing: [
+    'marketing1.png', 'marketing2.png', 'marketing3.png', 'marketing4.png'
+  ]
+};
+
+// ===== CUSTOM TITLES =====
+const CUSTOM_TITLES = {
+  motion: {
+    '1.mp4':  'Brand Animation Reel',
+    '2.mp4':  'Motion Graphics Showcase',
+    '4.mp4':  'Featured Motion Reel',
+    '1.webp': 'Video Editing Master Reel'
   },
-  graphic:{
-    label:'Graphic Design', color:'#0078FF',
-    bg:'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1600&q=80',
-    sub:'Visual communication crafted for impact',
-    items:[
-      {id:'g1',title:'Brand Identity System', thumb:'1.webp', tags:['Branding','Identity'],tools:'Illustrator · Photoshop',year:'', desc:'Complete brand identity systems — logo, color, typography, stationery, and brand guidelines.',match:98},
-      {id:'g2',title:'Poster Design Collection', thumb:'2.webp', tags:['Poster','Print'],tools:'Illustrator · InDesign',year:'', desc:'Award-worthy poster designs for music events, film festivals, corporate conferences, and product launches.',match:96},
-      {id:'g3',title:'Graphic Design', thumb:'3.webp', tags:['Showcase','Featured'],tools:'Illustrator · Photoshop · Figma',year:'', desc:'The definitive graphic design showcase — brand identities, editorial layouts, and visual art.',match:99,featured:true},
-      {id:'g4',title:'Packaging & Label Design', thumb:'4.webp', tags:['Packaging','Label'],tools:'Illustrator · Photoshop',year:'2023', desc:'Premium product packaging designs for food & beverage, cosmetics, and lifestyle brands.',match:93},
-      {id:'g5',title:'Infographic Suite', thumb:'5.webp', tags:['Data','Infographic'],tools:'Illustrator · After Effects',year:'', desc:'Complex data made beautiful — editorial infographics, process diagrams, and animated charts.',match:91},
-      {id:'g6',title:'Social Media Kit', thumb:'6.png', tags:['Social','Templates'],tools:'Photoshop · Figma',year:'', desc:'Full-scale social media design kits: feed grids, story templates, highlight covers, and content calendars.',match:94},
-      {id:'g7',title:'Magazine & Editorial Layout', thumb:'7.png', tags:['Magazine','Editorial'],tools:'InDesign · Photoshop',year:'2023', desc:'Sophisticated editorial and magazine layouts with expert typography, white space, and visual hierarchy.',match:95},
-      {id:'g8',title:'Custom Icon Libraries', thumb:'8.png', tags:['Icons','UI'],tools:'Illustrator · Figma',year:'', desc:'Hand-crafted icon sets and illustration libraries for apps, websites, and brand materials.',match:89},
-      {id:'g9',title:'Typography Exploration', thumb:'9.png', tags:['Typography','Experimental'],tools:'Illustrator · Photoshop',year:'2023', desc:'Experimental typography projects pushing the boundaries of letterform, layout, and visual rhythm.',match:92},
-    ]
+  graphic: {
+    '3.webp': 'Graphic Design Master Collection'
   },
-  video:{
-    label:'Video Editing', color:'#46d369',
-    bg:'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1600&q=80',
-    sub:'Storytelling through the lens of cinematic craft',
-    items:[
-      {id:'v1',title:'Video Editing', thumb:'1.webp', tags:['Reel','Featured'],tools:'Premiere Pro · DaVinci',year:'', desc:'The flagship video editing reel — cinematic cuts, colour grades, and storytelling across commercial, music, and documentary projects.',match:99,featured:true},
-      {id:'v2',title:'Corporate Film Production', thumb:'2.webp', tags:['Corporate','Film'],tools:'Premiere Pro · After Effects',year:'', desc:'High-end corporate films and company profiles — scripted, shot, and edited to broadcast standard.',match:97},
-      {id:'v3',title:'Music Video Edits', thumb:'3.webp', tags:['Music','Cinematic'],tools:'Premiere Pro · Lumetri',year:'', desc:'Cinematic music video edits with advanced colour grading, VFX integration, and sync-to-beat precision.',match:95},
-      {id:'v4',title:'YouTube Channel Content', thumb:'4.webp', tags:['YouTube','Content'],tools:'Premiere Pro · AE',year:'', desc:'YouTube content production and editing — including @jungleonly99 MLBB gameplay edits with dynamic cuts.',match:98},
-      {id:'v5',title:'Wedding Cinematic Film', thumb:'5.webp', tags:['Wedding','Cinematic'],tools:'DaVinci Resolve · Premiere',year:'2023', desc:'Luxury wedding highlight films with cinematic colour grading, aerial drone cuts, and emotional storytelling.',match:93},
-      {id:'v6',title:'TV Commercial & Ads', thumb:'6.png', tags:['Commercial','TV'],tools:'Premiere Pro · After Effects',year:'', desc:'Broadcast-quality TV and digital commercials — from 15-second bumpers to 60-second brand films.',match:96},
-      {id:'v7',title:'Short Documentary', thumb:'7.png', tags:['Documentary','Story'],tools:'Premiere Pro · DaVinci',year:'2023', desc:'Short-form documentary edits with expert pacing, archival integration, and cinematic grade.',match:91},
-      {id:'v8',title:'Travel & Lifestyle Vlogs', thumb:'8.png', tags:['Travel','Vlog'],tools:'Premiere Pro · Lumetri',year:'', desc:'Cinematic travel content with sweeping landscape grades, seamless J-cuts, and dynamic colour palettes.',match:92},
-    ]
-  },
-  web:{
-    label:'Web Development', color:'#9c27b0',
-    bg:'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1600&q=80',
-    sub:'Building performant digital experiences',
-    items:[
-      {id:'w1',title:'Website Development', thumb:'web1.png', tags:['PHP','MariaDB'],tools:'PHP · MariaDB · Bootstrap',year:'', desc:'Full Website Development Simple to Modern all Type of Website Developments.',match:99,featured:true},
-      {id:'w2',title:'E-Commerce Platform', thumb:'web2.png', tags:['E-commerce','Full-stack'],tools:'PHP · MySQL · JS',year:'', desc:'Complete e-commerce solution with cart, payment gateway, inventory management, and admin dashboard.',match:97},
-      {id:'w3',title:'SaaS Analytics Dashboard', thumb:'web3.png', tags:['Dashboard','SaaS'],tools:'React · Node · Chart.js',year:'', desc:'Real-time analytics SaaS dashboard with websocket updates, multi-tenant auth, and custom reporting.',match:95},
-      {id:'w4',title:'Creative Agency Website', thumb:'web5.png', tags:['Agency','Portfolio'],tools:'HTML · CSS · GSAP',year:'', desc:'Award-level creative agency websites with GSAP scroll animations, 3D effects, and immersive UX.',match:96},
-      {id:'w5',title:'Restaurant Online Ordering', thumb:'web6.png', tags:['Restaurant','App'],tools:'PHP · JS · Bootstrap',year:'2023', desc:'End-to-end restaurant ordering system with menu builder, order tracking, table reservations, and POS.',match:91},
-      {id:'w6',title:'Real Estate Portal', thumb:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80', tags:['Real Estate','Portal'],tools:'PHP · MySQL · Maps API',year:'2023', desc:'Property listing portal with geo-search, mortgage calculator, agent CRM, and virtual tour integration.',match:93},
-      {id:'w7',title:'LMS Learning Platform', thumb:'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&q=80', tags:['LMS','Education'],tools:'PHP · MySQL · Video.js',year:'', desc:'Learning management system with video courses, quizzes, certificates, progress tracking, and payment.',match:94},
-      {id:'w8',title:'Healthcare Patient Portal', thumb:'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80', tags:['Healthcare','Portal'],tools:'PHP · MariaDB · Bootstrap',year:'', desc:'Secure patient management portal with appointment booking, test results, prescriptions, and billing.',match:92},
-    ]
-  },
-  software:{
-    label:'Software Development', color:'#ff9800',
-    bg:'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1600&q=80',
-    sub:'Engineering solutions that scale and endure',
-    items:[
-      {id:'s1',title:'Software Development', thumb:'software1.png', tags:['PHP','System'],tools:'PHP · MariaDB · Bootstrap',year:'', desc:'Full lab management system for Laboratory and Diagnostic Center — patient records, test tracking, billing, LIS, real-time Chart.js dashboard.',match:99,featured:true},
-      {id:'s2',title:'Mobile App (Android)', thumb:'software2.png', tags:['Android','App'],tools:'React Native · Firebase',year:'', desc:'Cross-platform Android/iOS application with offline-first architecture, push notifications, and real-time sync.',match:95},
-      {id:'s3',title:'REST API Microservices', thumb:'software3.png', tags:['API','Node.js'],tools:'Node.js · Express · PostgreSQL',year:'', desc:'Scalable REST API microservices with JWT auth, rate limiting, Redis caching, and Swagger docs.',match:94},
-      {id:'s4',title:'Database Architecture', thumb:'software4.png', tags:['Database','SQL'],tools:'MariaDB · MySQL · Redis',year:'', desc:'Enterprise database architecture — schema design, query optimisation, replication, sharding, and backup.',match:92},
-      {id:'s5',title:'Python Automation Suite', thumb:'software5.png', tags:['Python','Automation'],tools:'Python · Selenium · Pandas',year:'2023', desc:'Business process automation using Python — web scraping, data pipelines, report generation.',match:90},
-      {id:'s6',title:'Poco F3 Custom ROM Setup', thumb:'software6.png', tags:['Android','Custom ROM'],tools:'Evolution X 9.0 · ADB',year:'', desc:'Advanced Android customisation on Poco F3 — Evolution X 9.0, RealKing kernel, Kprofiles for PUBG performance.',match:98},
-      {id:'s7',title:'Browser Extension', thumb:'software7.png', tags:['Chrome','Extension'],tools:'JS · Chrome API · CSS',year:'2023', desc:'Productivity browser extension with tab management, note-taking, site blocking, and sync.',match:88},
-      {id:'s8',title:'Custom CMS Platform', thumb:'software8.png', tags:['CMS','PHP'],tools:'PHP · MySQL · TinyMCE',year:'2023', desc:'Headless CMS with drag-and-drop page builder, media library, SEO tools, and multi-site management.',match:93},
-    ]
-  },
-  marketing:{
-    label:'Digital Marketing', color:'#f44336',
-    bg:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80',
-    sub:'Growing brands and audiences in the digital era',
-    items:[
-      {id:'mk1',title:'Social Media Strategy', thumb:'web2.png', tags:['Social','Strategy'],tools:'Meta Ads · Canva · Analytics',year:'', desc:'Full social media strategy — content calendars, community management, paid social, and growth analytics.',match:96},
-      {id:'mk2',title:'SEO Audit & Growth', thumb:'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80', tags:['SEO','Technical'],tools:'SEMrush · Ahrefs · GA4',year:'', desc:'Comprehensive technical and content SEO audits, keyword research, backlink campaigns, and rank tracking.',match:94},
-      {id:'mk3',title:'YouTube Growth Strategy', thumb:'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80', tags:['YouTube','MLBB'],tools:'TubeBuddy · Analytics',year:'', desc:'YouTube channel growth strategy for @jungleonly99 — Julian jungle MLBB content, title A/B testing, tag auditing, Shorts strategy.',match:99,featured:true},
-      {id:'mk4',title:'Google Ads Campaigns', thumb:'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80', tags:['PPC','Google'],tools:'Google Ads · Analytics · Looker',year:'', desc:'High-ROAS Google Ads campaigns — Search, Display, YouTube, and Shopping with conversion optimisation.',match:93},
-      {id:'mk5',title:'Email Marketing Automation', thumb:'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&q=80', tags:['Email','Automation'],tools:'Mailchimp · Klaviyo · HubSpot',year:'', desc:'Drip campaigns, welcome sequences, and behavioural automation flows with industry-leading open rates.',match:91},
-      {id:'mk6',title:'Analytics & Reporting', thumb:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80', tags:['Analytics','GA4'],tools:'GA4 · Looker Studio · BigQuery',year:'', desc:'Custom GA4 dashboards, Looker Studio reports, and event tracking for marketing attribution.',match:95},
-      {id:'mk7',title:'Content Strategy', thumb:'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80', tags:['Content','Blog'],tools:'WordPress · SEMrush · Figma',year:'2023', desc:'Full content strategy from ideation to distribution — blog, video, and social pipelines with SEO.',match:90},
-      {id:'mk8',title:'Brand Health Audit', thumb:'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80', tags:['Report','Brand'],tools:'PowerPoint · Data Studio',year:'', desc:'Comprehensive 6-month brand health audits covering reach, share-of-voice, sentiment, and competitive positioning.',match:88},
-    ]
+  marketing: {
+    'marketing3.png': 'YouTube Growth Strategy'
   }
 };
 
+// ===== CUSTOM DESCRIPTIONS =====
+const CUSTOM_DESCS = {
+  motion: {
+    'yt:dQw4w9WgXcQ': 'Professional video editing showcase with cinematic transitions and color grading.',
+    'yt:9bZkp7q19f0': 'Mobile Legends Bang Bang jungle gameplay with dynamic editing and effects.',
+    'yt:kJQP7kiw5Fk': 'Corporate video production for major brands with premium quality.',
+    'yt:M7lc1UVf-VE': 'Epic MLBB montage with smooth transitions and beat sync.',
+    'yt:LXb3EKWsInQ': 'Complete video editing tutorial using Adobe Premiere Pro.'
+  }
+};
+
+// ===== FEATURED ITEMS =====
+const FEATURED_ITEMS = {
+  motion:    ['4.mp4', '1.webp', 'yt:dQw4w9WgXcQ', 'yt:9bZkp7q19f0'],
+  graphic:   ['3.webp'],
+  web:       ['web1.png'],
+  software:  ['software1.png'],
+  marketing: ['marketing3.png']
+};
+
+// ===== CATEGORY DEFAULTS =====
+// 'video' key removed — motion covers Motion Design + Video Editing combined
+const CATEGORY_DEFAULTS = {
+  motion: {
+    label: 'Motion/Video Editing', color: '#E50914',
+    bg: 'thumnail2.png',
+    sub: 'Motion graphics, animation & cinematic video editing',
+    tags: ['Motion', 'Animation', 'Editing'],
+    tools: 'After Effects · Premiere Pro ',
+    defaultMatch: 96
+  },
+  graphic: {
+    label: 'Graphic Design', color: '#0078FF',
+    bg: '4.webp',
+    sub: 'Visual communication crafted for impact',
+    tags: ['Design', 'Creative'],
+    tools: 'Illustrator · Photoshop',
+    defaultMatch: 94
+  },
+  web: {
+    label: 'Web Development', color: '#9c27b0',
+    bg: 'web1.png',
+    sub: 'Building performant digital experiences',
+    tags: ['Development', 'Full-stack'],
+    tools: 'PHP · JavaScript · MySQL',
+    defaultMatch: 95
+  },
+  software: {
+    label: 'Software Development', color: '#ff9800',
+    bg: 'software1.png',
+    sub: 'Engineering solutions that scale and endure',
+    tags: ['Software', 'Development'],
+    tools: 'PHP · Python · Node.js',
+    defaultMatch: 94
+  },
+  marketing: {
+    label: 'Digital Marketing', color: '#f44336',
+    bg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80',
+    sub: 'Growing brands and audiences in the digital era',
+    tags: ['Marketing', 'SEO'],
+    tools: 'Google Ads · Analytics',
+    defaultMatch: 93
+  }
+};
+
+// ===== HELPER FUNCTIONS =====
+function isYouTubeFile(filename) {
+  return filename && filename.startsWith('yt:');
+}
+function getYouTubeId(filename) {
+  return isYouTubeFile(filename) ? filename.replace('yt:', '') : null;
+}
+function getYouTubeThumbnail(youtubeId) {
+  return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+}
+function isVideoFile(src) {
+  return src && (src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg'));
+}
+function isYouTubeVideo(item) {
+  return item?.isYouTube === true || (item?.youtubeId && item.youtubeId.length > 0);
+}
+
+// ===== GENERATOR =====
+function generateItems(category, files) {
+  const defaults   = CATEGORY_DEFAULTS[category];
+  const customTitles = CUSTOM_TITLES[category]  || {};
+  const customDescs  = CUSTOM_DESCS[category]   || {};
+  const featured     = FEATURED_ITEMS[category] || [];
+  if (!files || files.length === 0) return [];
+
+  return files.map((file, index) => {
+    const isYT  = isYouTubeFile(file);
+    const isVid = !isYT && isVideoFile(file);
+
+    if (isYT) {
+      const youtubeId = getYouTubeId(file);
+      return {
+        id: `${category.substring(0,1)}${index + 1}`,
+        title: customTitles[file] || `YouTube Video ${index + 1}`,
+        thumb: getYouTubeThumbnail(youtubeId),
+        poster: getYouTubeThumbnail(youtubeId),
+        youtubeId,
+        tags: [...defaults.tags, 'YouTube'],
+        tools: defaults.tools,
+        year: '',
+        desc: customDescs[file] || `${customTitles[file] || 'YouTube video'} - Professional content.`,
+        match: defaults.defaultMatch - (index % 7),
+        featured: featured.includes(file),
+        isYouTube: true
+      };
+    } else {
+      const name  = file.split('.')[0];
+      const title = customTitles[file] || name.replace(/[_-]/g, ' ').replace(/\d+$/, '').trim() || `${defaults.label}`;
+      return {
+        id: `${category.substring(0,1)}${index + 1}`,
+        title,
+        thumb: file,
+        poster: isVid ? `thumnail${file.match(/(\d+)/)?.[1] || index + 1}.png` : null,
+        youtubeId: null,
+        tags: [...defaults.tags],
+        tools: defaults.tools,
+        year: '',
+        desc: customDescs[file] || `${title} - Professional ${defaults.label} work.`,
+        match: defaults.defaultMatch - (index % 7),
+        featured: featured.includes(file),
+        isYouTube: false
+      };
+    }
+  });
+}
+
+// ===== BUILD CATS (no 'video' key) =====
+const CATS = {
+  motion:   { ...CATEGORY_DEFAULTS.motion,   items: generateItems('motion',   FILE_LISTS.motion)   },
+  graphic:  { ...CATEGORY_DEFAULTS.graphic,  items: generateItems('graphic',  FILE_LISTS.graphic)  },
+  web:      { ...CATEGORY_DEFAULTS.web,      items: generateItems('web',      FILE_LISTS.web)      },
+  software: { ...CATEGORY_DEFAULTS.software, items: generateItems('software', FILE_LISTS.software) }
+};
+
+// ===== HERO ITEMS =====
+// idx 9 in motion = first of the former video-editing files (1.webp)
 const HERO_ITEMS = [
-  {cat:'motion',  idx:3},
-  {cat:'video',   idx:0},
-  {cat:'graphic', idx:2},
-  {cat:'web',     idx:0},
-  {cat:'marketing',idx:2},
-  {cat:'software',idx:0},
+  {cat:'motion',   idx: 3},
+  {cat:'motion',   idx: 9},
+  {cat:'graphic',  idx: 2},
+  {cat:'web',      idx: 0},
+  {cat:'software', idx: 0}
 ];
 
-/* ====================================================
-   STATE
-   ==================================================== */
+// ===== STATE =====
 let heroIdx = 0, heroTimer = null;
 let autoplay = true;
 let vItems = [], vIdx = 0, vProgTimer = null, vProg = 0;
 let viewerPaused = false;
 let rowOffsets = {};
 let currentCat = null;
+let continueList = [];
 
-/* ====================================================
-   HELPERS
-   ==================================================== */
-function isVideoFile(src) {
-  return src && (src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg'));
-}
-function getPoster(item) {
-  if (item.poster) return item.poster;
-  return item.thumb.replace(/\.(mp4|webm|ogg)$/i, '.jpg');
-}
+try { continueList = JSON.parse(localStorage.getItem('portfolio_cw') || '[]'); } catch(e) {}
 
-/* ====================================================
-   THEME
-   ==================================================== */
+// ===== THEME =====
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   ['btn-dark','btn-light'].forEach(id => {
@@ -472,83 +515,254 @@ function toggleTheme() {
   applyTheme(cur === 'dark' ? 'light' : 'dark');
   toast(cur === 'dark' ? '☀️ Light mode' : '🌙 Dark mode');
 }
-(function() {
-  try { const s = localStorage.getItem('portfolio_theme'); if (s) applyTheme(s); } catch(e) {}
-})();
 
-/* ====================================================
-   MOBILE MENU
-   ==================================================== */
-function toggleMobileMenu() {
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-function closeMobileMenu() {
-  document.getElementById('mobile-menu').classList.remove('open');
+// ===== TOAST =====
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
 }
 
-/* ====================================================
-   BOOT / SPLASH
-   ==================================================== */
-document.addEventListener('keydown', e => {
-  const splash = document.getElementById('splash');
-  if (!splash.classList.contains('hidden') && e.key === 'ArrowUp') { enterPortfolio(); return; }
-  const viewer = document.getElementById('viewer');
-  if (viewer.classList.contains('open')) {
-    if (e.key === 'ArrowLeft')  viewNav(-1);
-    if (e.key === 'ArrowRight') viewNav(1);
-    if (e.key === 'Escape')     closeViewer();
-    if (e.key === ' ')          { e.preventDefault(); toggleViewerPlayPause(); }
-    if (e.key === 'f' || e.key === 'F') toggleViewerFullscreen();
+// ===== VIEWER =====
+function getPoster(item) {
+  if (isYouTubeVideo(item)) return item.thumb;
+  if (item.poster) return item.poster;
+  if (isVideoFile(item.thumb)) {
+    const numMatch = item.thumb.match(/(\d+)/);
+    return numMatch ? `thumnail${numMatch[1]}.png` : item.thumb.replace(/\.(mp4|webm|ogg)$/i, '.jpg');
   }
-  if (document.getElementById('info-modal').classList.contains('open') && e.key === 'Escape') closeInfo();
-  if (document.getElementById('cat-page').classList.contains('open') && e.key === 'Escape')   closeCatPage();
-});
-document.getElementById('splash').addEventListener('click', () => {
-  if (!document.getElementById('splash').classList.contains('hidden')) enterPortfolio();
-});
+  return item.thumb;
+}
 
-function enterPortfolio() {
-  document.getElementById('splash').classList.add('hidden');
-  document.getElementById('navbar').classList.add('visible');
-  document.getElementById('hero').classList.add('visible');
-  buildHero();
-  buildAllRows();
+function renderViewer() {
+  const item = vItems[vIdx];
+  document.getElementById('vTitle').textContent    = item.title || '';
+  document.getElementById('vCatLabel').textContent = CATS[currentCat]?.label || '';
+  const stage = document.querySelector('.viewer-stage');
+
+  const oldVid     = document.getElementById('vPlayer');
+  const oldYouTube = document.getElementById('vYouTube');
+  const oldImg     = document.getElementById('vImg');
+  if (oldVid)     oldVid.remove();
+  if (oldYouTube) oldYouTube.remove();
+  if (oldImg)     oldImg.style.display = 'none';
+
+  const progressWrap = document.querySelector('.vcb-progress-wrap');
+  const playPauseBtn = document.getElementById('vcbPlayPause');
+
+  if (isYouTubeVideo(item)) {
+    if (progressWrap) progressWrap.style.opacity = '0.3';
+    if (playPauseBtn) playPauseBtn.style.opacity  = '0.5';
+
+    const ytContainer = document.createElement('div');
+    ytContainer.id = 'vYouTube';
+    ytContainer.style.cssText = 'width:100%;height:100%;position:relative;';
+
+    const embedUrl = `https://www.youtube-nocookie.com/embed/${item.youtubeId}?autoplay=0&enablejsapi=1&controls=1&rel=0&modestbranding=1&playsinline=1`;
+    const iframe   = document.createElement('iframe');
+    iframe.src     = embedUrl;
+    iframe.style.cssText = 'width:100%;height:100%;border:none;border-radius:12px;background:#000;';
+    iframe.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.onerror = () => {
+      ytContainer.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;background:#000;color:#fff;text-align:center;padding:20px;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="#e50914" style="margin-bottom:20px;"><path d="M10 15l5.5-3L10 9v6zm10-3c0 4.41-3.59 8-8 8s-8-3.59-8-8 3.59-8 8-8 8 3.59 8 8z"/></svg>
+          <h3>Cannot play this video here</h3>
+          <p>This video has embedding disabled or is restricted.</p>
+          <a href="https://www.youtube.com/watch?v=${item.youtubeId}" target="_blank"
+             style="background:#e50914;color:white;padding:10px 20px;border-radius:4px;text-decoration:none;margin-top:15px;display:inline-block;">
+            Watch on YouTube →
+          </a>
+        </div>`;
+    };
+    ytContainer.appendChild(iframe);
+    stage.insertBefore(ytContainer, stage.querySelector('.viewer-nav.next'));
+
+  } else if (isVideoFile(item.thumb)) {
+    if (progressWrap) progressWrap.style.opacity = '1';
+    if (playPauseBtn) playPauseBtn.style.opacity  = '1';
+    const video = document.createElement('video');
+    video.id = 'vPlayer';
+    video.src = item.thumb;
+    video.poster   = getPoster(item);
+    video.autoplay = true;
+    video.controls = false;
+    video.style.cssText = 'max-width:100%;max-height:100%;border-radius:12px;background:#000;display:block;';
+    stage.insertBefore(video, stage.querySelector('.viewer-nav.next'));
+
+  } else {
+    if (progressWrap) progressWrap.style.opacity = '1';
+    if (playPauseBtn) playPauseBtn.style.opacity  = '1';
+    const img = document.createElement('img');
+    img.id        = 'vImg';
+    img.className = 'viewer-img';
+    img.src       = item.thumb;
+    img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;';
+    stage.insertBefore(img, stage.querySelector('.viewer-nav.next'));
+  }
+
+  buildFilmstrip();
+  updateViewerCounter();
+  updateViewerControls();
+}
+
+function loadYouTubeAPI() {
+  if (document.getElementById('youtube-api')) return;
+  const tag = document.createElement('script');
+  tag.id  = 'youtube-api';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.getElementsByTagName('script')[0].parentNode.insertBefore(tag, document.getElementsByTagName('script')[0]);
+}
+loadYouTubeAPI();
+function onYouTubeIframeAPIReady() { console.log('YouTube API Ready'); }
+
+function buildFilmstrip() {
+  const fs = document.getElementById('vFilmstrip');
+  fs.innerHTML = '';
+  vItems.forEach((it, i) => {
+    const img     = document.createElement('img');
+    img.src       = isYouTubeVideo(it) ? it.thumb : getPoster(it);
+    img.alt       = it.title || '';
+    img.className = 'film-thumb' + (i === vIdx ? ' active' : '');
+    img.onclick   = () => { vIdx = i; renderViewer(); resetViewerAutoplay(); };
+    fs.appendChild(img);
+  });
+  setTimeout(() => {
+    document.querySelector('.film-thumb.active')?.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+  }, 100);
+}
+
+function viewNav(dir) {
+  vIdx = (vIdx + dir + vItems.length) % vItems.length;
+  renderViewer();
+  resetViewerAutoplay();
+  updateViewerControls();
+}
+
+function openViewer(catKey, idx, e) {
+  if (e) e.stopPropagation();
+  clearInterval(heroTimer);
+  currentCat   = catKey;
+  vItems       = CATS[catKey].items;
+  vIdx         = idx;
+  viewerPaused = false;
+  addContinue(catKey, vItems[idx].id);
+  renderViewer();
+  document.getElementById('viewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (autoplay) startViewerAutoplay();
+  updateViewerControls();
+}
+
+function closeViewer() {
+  document.getElementById('viewer').classList.remove('open');
+  document.body.style.overflow = '';
+  clearInterval(vProgTimer);
+  document.getElementById('vPlayer')?.pause();
+  document.getElementById('vPlayer')?.remove();
+  document.getElementById('vYouTube')?.remove();
+  if (document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+  heroTimer = setInterval(advanceHero, 7000);
+}
+
+function startViewerAutoplay() {
+  if (viewerPaused || isYouTubeVideo(vItems[vIdx])) return;
+  clearInterval(vProgTimer);
+  vProg = 0; updateVcbProgress(0);
+  vProgTimer = setInterval(() => {
+    if (viewerPaused || isYouTubeVideo(vItems[vIdx])) return;
+    vProg = Math.min(vProg + 100/60, 100);
+    updateVcbProgress(vProg);
+    if (vProg >= 100) {
+      vIdx = (vIdx + 1) % vItems.length;
+      renderViewer(); vProg = 0; updateViewerControls();
+    }
+  }, 100);
+}
+
+function resetViewerAutoplay() {
+  clearInterval(vProgTimer);
+  if (autoplay && !viewerPaused && !isYouTubeVideo(vItems[vIdx])) startViewerAutoplay();
+  else updateVcbProgress(0);
+}
+
+function toggleAutoplay() {
+  autoplay = !autoplay;
+  document.getElementById('apTrack').classList.toggle('on', autoplay);
+  autoplay && !viewerPaused && !isYouTubeVideo(vItems[vIdx]) ? startViewerAutoplay() : clearInterval(vProgTimer);
+  toast(autoplay ? '▶ Autoplay ON' : '⏸ Autoplay OFF');
+}
+
+function toggleViewerPlayPause() {
+  if (isYouTubeVideo(vItems[vIdx])) { toast('🎬 Use YouTube player controls'); return; }
+  viewerPaused = !viewerPaused;
+  const vid = document.getElementById('vPlayer');
+  if (vid) viewerPaused ? vid.pause() : vid.play();
+  viewerPaused ? clearInterval(vProgTimer) : autoplay && startViewerAutoplay();
+  updateViewerControls();
+}
+
+function toggleViewerFullscreen() {
+  const el = document.getElementById('vPlayer') || document.getElementById('vYouTube') || document.documentElement;
+  !document.fullscreenElement ? el.requestFullscreen() : document.exitFullscreen();
+}
+
+function seekViewerProgress(e) {
+  if (isYouTubeVideo(vItems[vIdx])) { toast('⏩ Use YouTube player to seek'); return; }
+  const rect = e.currentTarget.getBoundingClientRect();
+  vProg = Math.max(0, Math.min(100, (e.clientX - rect.left) / rect.width * 100));
+  updateVcbProgress(vProg);
+  if (!viewerPaused && autoplay) { clearInterval(vProgTimer); startViewerAutoplay(); }
+}
+
+function updateVcbProgress(pct) {
+  const bar = document.getElementById('vcbProgBar');
+  if (bar) bar.style.width = pct + '%';
+}
+
+function updateViewerControls() {
+  const pauseIcon = document.getElementById('vcbPauseIcon');
+  const playIcon  = document.getElementById('vcbPlayIcon');
+  const isYT      = isYouTubeVideo(vItems[vIdx]);
+  if (pauseIcon && playIcon) {
+    pauseIcon.style.display = isYT ? 'none' : (viewerPaused ? 'none' : '');
+    playIcon.style.display  = isYT ? 'none' : (viewerPaused ? '' : 'none');
+  }
+  updateViewerCounter();
+}
+
+function updateViewerCounter() {
+  const el = document.getElementById('vcbCounter');
+  if (el) el.textContent = `${vIdx + 1} / ${vItems.length}`;
+}
+
+function addContinue(catKey, itemId) {
+  continueList = continueList.filter(c => !(c.cat === catKey && c.id === itemId));
+  continueList.unshift({cat: catKey, id: itemId});
+  if (continueList.length > 10) continueList = continueList.slice(0, 10);
+  try { localStorage.setItem('portfolio_cw', JSON.stringify(continueList)); } catch(e) {}
   buildContinueRow();
-  window.addEventListener('scroll', onScroll);
-}
-function onScroll() {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
 }
 
-/* ====================================================
-   NAV HIGHLIGHT
-   ==================================================== */
-function setNavActive(key) {
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  if (key === 'home') document.getElementById('nl-home')?.classList.add('active');
-  else document.getElementById('nl-'+key)?.classList.add('active');
-  document.querySelectorAll('.cat-nav-links a').forEach(a => a.classList.remove('active'));
-  if (key && key !== 'home') document.getElementById('cnl-'+key)?.classList.add('active');
-}
-
-/* ====================================================
-   HERO
-   ==================================================== */
+// ===== HERO =====
 function buildHero() {
   const slidesEl = document.getElementById('hero-slides');
   slidesEl.innerHTML = '';
   HERO_ITEMS.forEach((h, i) => {
     const item = CATS[h.cat].items[h.idx];
-    const div = document.createElement('div');
+    const div  = document.createElement('div');
     div.className = 'hero-slide' + (i === 0 ? ' active' : '');
-    const bg = isVideoFile(item.thumb) ? getPoster(item) : item.thumb;
-    div.style.backgroundImage = `url('${bg}')`;
+    div.style.backgroundImage = `url('${isVideoFile(item.thumb) ? getPoster(item) : item.thumb}')`;
     slidesEl.appendChild(div);
   });
   buildProgDots();
   renderHeroContent();
   heroTimer = setInterval(advanceHero, 7000);
 }
+
 function buildProgDots() {
   const el = document.getElementById('hero-progress');
   el.innerHTML = '';
@@ -559,9 +773,10 @@ function buildProgDots() {
     el.appendChild(d);
   });
 }
+
 function renderHeroContent() {
-  const h = HERO_ITEMS[heroIdx];
-  const cat = CATS[h.cat];
+  const h    = HERO_ITEMS[heroIdx];
+  const cat  = CATS[h.cat];
   const item = cat.items[h.idx];
   document.getElementById('hero-content').innerHTML = `
     <div class="hero-badge">
@@ -585,16 +800,15 @@ function renderHeroContent() {
     </div>
   `;
 }
+
 function advanceHero() { heroIdx = (heroIdx + 1) % HERO_ITEMS.length; updateHero(); }
 function updateHero() {
   document.querySelectorAll('.hero-slide').forEach((s,i) => s.classList.toggle('active', i===heroIdx));
-  document.querySelectorAll('.hero-pdot').forEach((d,i) => d.classList.toggle('active', i===heroIdx));
+  document.querySelectorAll('.hero-pdot').forEach((d,i)  => d.classList.toggle('active', i===heroIdx));
   renderHeroContent();
 }
 
-/* ====================================================
-   BUILD ROWS
-   ==================================================== */
+// ===== ROWS =====
 function buildAllRows() {
   const main = document.getElementById('main');
   main.querySelectorAll('.row:not(#row-continue)').forEach(r => r.remove());
@@ -606,7 +820,7 @@ function buildAllRows() {
   if (featured.length) buildRow(main, '🔥 Top Picks for You', 'track-featured', featured);
 
   Object.entries(CATS).forEach(([key, cat]) => {
-    buildRow(main, cat.label, 'track-'+key, cat.items.map(it=>({...it,_cat:key})), key);
+    buildRow(main, cat.label.replace(/\s+\d+$/, ''), 'track-'+key, cat.items.map(it=>({...it,_cat:key})), key);
   });
 
   const spotlight = Object.entries(CATS).map(([k,cat]) => ({...cat.items[0], _cat:k}));
@@ -629,365 +843,100 @@ function buildRow(container, title, trackId, items, catKey) {
   `;
   container.appendChild(row);
   const track = row.querySelector('.row-track');
-  items.forEach((item, i) => {
-    const card = makeCard(item, item._cat || catKey, i, items);
-    track.appendChild(card);
-  });
+  items.forEach(item => track.appendChild(makeCard(item, item._cat || catKey)));
 }
 
-/* ====================================================
-   MAKE CARD — Thumbnail hover zoom only, NO text overlay
-   ==================================================== */
-function makeCard(item, catKey, idx, itemsArray) {
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  const isVid = isVideoFile(item.thumb);
-  const poster = isVid ? getPoster(item) : item.thumb;
-
+function makeCard(item, catKey) {
+  const card      = document.createElement('div');
+  card.className  = 'card';
   const thumbWrap = document.createElement('div');
   thumbWrap.className = 'card-thumb-wrap';
 
-  if (isVid) {
-    const video = document.createElement('video');
+  if (isVideoFile(item.thumb) && !isYouTubeVideo(item)) {
+    const video    = document.createElement('video');
     video.className = 'card-video';
-    video.src = item.thumb;
-    video.muted = true;
-    video.loop = true;
-    video.preload = 'none';
+    video.src      = item.thumb;
+    video.muted    = true;
+    video.loop     = true;
+    video.preload  = 'none';
     video.playsInline = true;
-    video.setAttribute('playsinline', '');
     thumbWrap.appendChild(video);
-
     const posterEl = document.createElement('div');
     posterEl.className = 'card-poster-overlay';
-    posterEl.style.backgroundImage = `url('${poster}')`;
+    posterEl.style.backgroundImage = `url('${getPoster(item)}')`;
     thumbWrap.appendChild(posterEl);
-
-    card.addEventListener('mouseenter', () => {
-      video.preload = 'auto';
-      video.play().catch(() => {});
-    });
-    card.addEventListener('mouseleave', () => {
-      video.pause();
-      video.currentTime = 0;
-    });
+    card.addEventListener('mouseenter', () => { video.preload = 'auto'; video.play().catch(()=>{}); });
+    card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
   } else {
-    const img = document.createElement('img');
-    img.className = 'card-img';
-    img.src = item.thumb;
-    img.alt = item.title || '';
-    img.loading = 'lazy';
+    const img      = document.createElement('img');
+    img.className  = 'card-img';
+    img.src        = item.thumb;
+    img.alt        = item.title || '';
+    img.loading    = 'lazy';
     thumbWrap.appendChild(img);
   }
 
   card.appendChild(thumbWrap);
-  card.addEventListener('click', () => openViewer(catKey, idx));
+  card.addEventListener('click', () => openViewer(catKey, CATS[catKey].items.findIndex(i => i.id === item.id)));
   return card;
 }
 
-/* ====================================================
-   ROW SLIDING
-   ==================================================== */
 function slideRow(trackId, dir) {
   const track = document.getElementById(trackId);
   if (!track) return;
-  const wrap = track.parentElement;
-  const cardEl = track.querySelector('.card, .card-continue');
+  const cardEl = track.querySelector('.card');
   if (!cardEl) return;
-
-  const cardW = cardEl.offsetWidth + 8;
-  const wrapW = wrap.offsetWidth - 96;
+  const cardW        = cardEl.offsetWidth + 8;
+  const wrapW        = track.parentElement.offsetWidth - 96;
   const visibleCount = Math.max(1, Math.floor(wrapW / cardW));
-  const total = track.children.length;
-  const maxOffset = Math.max(0, total - visibleCount);
-
-  rowOffsets[trackId] = (rowOffsets[trackId] || 0) + dir * visibleCount;
-  rowOffsets[trackId] = Math.max(0, Math.min(rowOffsets[trackId], maxOffset));
+  const maxOffset    = Math.max(0, track.children.length - visibleCount);
+  rowOffsets[trackId] = Math.max(0, Math.min((rowOffsets[trackId] || 0) + dir * visibleCount, maxOffset));
   track.style.transform = `translateX(-${rowOffsets[trackId] * cardW}px)`;
 }
 
-/* ====================================================
-   CONTINUE WATCHING
-   ==================================================== */
-let continueList = [];
-try { continueList = JSON.parse(localStorage.getItem('portfolio_cw') || '[]'); } catch(e) {}
-
 function buildContinueRow() {
-  if (!continueList.length) { document.getElementById('row-continue').style.display = 'none'; return; }
+  if (!continueList.length) { 
+    document.getElementById('row-continue').style.display = 'none'; 
+    return; 
+  }
   document.getElementById('row-continue').style.display = 'block';
   const track = document.getElementById('track-continue');
   track.innerHTML = '';
+  
   continueList.slice(0, 10).forEach(({cat: catKey, id}) => {
-    const cat = CATS[catKey]; if (!cat) return;
+    const cat = CATS[catKey];
+    if (!cat) return;
     const idx = cat.items.findIndex(it => it.id === id);
     if (idx < 0) return;
     const item = cat.items[idx];
-    const prog = Math.round(20 + Math.random() * 60);
-    const card = document.createElement('div');
-    card.className = 'card card-continue';
-
-    const isVid = isVideoFile(item.thumb);
-    const poster = isVid ? getPoster(item) : item.thumb;
-
-    const thumbWrap = document.createElement('div');
-    thumbWrap.className = 'card-thumb-wrap';
-    thumbWrap.style.borderRadius = '8px';
-
-    if (isVid) {
-      const video = document.createElement('video');
-      video.className = 'card-video';
-      video.src = item.thumb;
-      video.muted = true; video.loop = true;
-      video.preload = 'none'; video.playsInline = true;
-      thumbWrap.appendChild(video);
-      const posterEl = document.createElement('div');
-      posterEl.className = 'card-poster-overlay';
-      posterEl.style.backgroundImage = `url('${poster}')`;
-      thumbWrap.appendChild(posterEl);
-      card.addEventListener('mouseenter', () => { video.preload = 'auto'; video.play().catch(()=>{}); });
-      card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-    } else {
-      const img = document.createElement('img');
-      img.className = 'card-img'; img.src = item.thumb; img.alt = item.title||''; img.loading = 'lazy';
-      thumbWrap.appendChild(img);
-    }
-
+    
+    // ✅ USE THE SAME makeCard() FUNCTION
+    const card = makeCard(item, catKey);
+    card.classList.add('card-continue'); // optional extra class
+    
+    // Add progress bar if needed
     const progBar = document.createElement('div');
     progBar.className = 'continue-progress';
-    progBar.innerHTML = `<div class="continue-bar" style="width:${prog}%"></div>`;
-    thumbWrap.appendChild(progBar);
-
-    card.appendChild(thumbWrap);
-    card.addEventListener('click', () => openViewer(catKey, idx));
+    progBar.innerHTML = `<div class="continue-bar" style="width:${Math.round(20 + Math.random() * 60)}%"></div>`;
+    card.querySelector('.card-thumb-wrap').appendChild(progBar);
+    
     track.appendChild(card);
   });
 }
 
-function addContinue(catKey, itemId) {
-  continueList = continueList.filter(c => !(c.cat === catKey && c.id === itemId));
-  continueList.unshift({cat: catKey, id: itemId});
-  if (continueList.length > 10) continueList = continueList.slice(0, 10);
-  try { localStorage.setItem('portfolio_cw', JSON.stringify(continueList)); } catch(e) {}
-  buildContinueRow();
-}
-
-/* ====================================================
-   VIEWER
-   ==================================================== */
-function openViewer(catKey, idx, e) {
-  if (e) e.stopPropagation();
-  clearInterval(heroTimer);
-  vItems = CATS[catKey].items;
-  vIdx = idx;
-  viewerPaused = false;
-  document.getElementById('vCatLabel').textContent = CATS[catKey].label;
-  addContinue(catKey, vItems[idx].id);
-  renderViewer();
-  document.getElementById('viewer').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  if (autoplay) startViewerAutoplay();
-  updateViewerControls();
-}
-
-function renderViewer() {
-  const item = vItems[vIdx];
-  document.getElementById('vTitle').textContent = item.title || '';
-  const stage = document.querySelector('.viewer-stage');
-
-  const oldImg = document.getElementById('vImg');
-  const oldVid = document.getElementById('vPlayer');
-  if (oldVid) oldVid.remove();
-
-  if (isVideoFile(item.thumb)) {
-    if (oldImg) oldImg.style.display = 'none';
-    const video = document.createElement('video');
-    video.id = 'vPlayer';
-    video.src = item.thumb;
-    video.poster = getPoster(item);
-    video.autoplay = true;
-    video.controls = false; // we use our own controls
-    video.style.cssText = 'max-width:100%;max-height:100%;border-radius:8px;background:#000;display:block;';
-    const nextBtn = stage.querySelector('.viewer-nav.next');
-    stage.insertBefore(video, nextBtn);
-  } else {
-    if (oldImg) { oldImg.style.display = ''; }
-    let img = document.getElementById('vImg');
-    if (!img) {
-      img = document.createElement('img');
-      img.id = 'vImg'; img.className = 'viewer-img';
-      const nextBtn = stage.querySelector('.viewer-nav.next');
-      stage.insertBefore(img, nextBtn);
-    }
-    img.classList.add('loading');
-    const tmp = new Image();
-    tmp.onload = () => { img.src = item.thumb; img.classList.remove('loading'); };
-    tmp.src = item.thumb;
-  }
-
-  buildFilmstrip();
-  updateViewerCounter();
-}
-
-function buildFilmstrip() {
-  const fs = document.getElementById('vFilmstrip');
-  fs.innerHTML = '';
-  vItems.forEach((it, i) => {
-    const img = document.createElement('img');
-    const src = isVideoFile(it.thumb) ? getPoster(it) : it.thumb;
-    img.src = src; img.alt = it.title || '';
-    img.className = 'film-thumb' + (i === vIdx ? ' active' : '');
-    img.onclick = () => { vIdx = i; renderViewer(); resetViewerAutoplay(); };
-    fs.appendChild(img);
-  });
-  setTimeout(() => {
-    const active = fs.querySelector('.film-thumb.active');
-    if (active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
-  }, 100);
-}
-
-function viewNav(dir) {
-  vIdx = (vIdx + dir + vItems.length) % vItems.length;
-  renderViewer(); resetViewerAutoplay();
-  updateViewerControls();
-}
-
-function closeViewer() {
-  document.getElementById('viewer').classList.remove('open');
-  document.body.style.overflow = '';
-  clearInterval(vProgTimer);
-  const vid = document.getElementById('vPlayer');
-  if (vid) { vid.pause(); vid.remove(); }
-  if (document.fullscreenElement) document.exitFullscreen().catch(()=>{});
-  heroTimer = setInterval(advanceHero, 7000);
-}
-
-/* ===== AUTOPLAY ===== */
-function startViewerAutoplay() {
-  if (viewerPaused) return;
-  clearInterval(vProgTimer); vProg = 0;
-  updateVcbProgress(0);
-  const step = 100 / (6000 / 100);
-  vProgTimer = setInterval(() => {
-    if (viewerPaused) return;
-    vProg = Math.min(vProg + step, 100);
-    updateVcbProgress(vProg);
-    if (vProg >= 100) { vIdx = (vIdx + 1) % vItems.length; renderViewer(); vProg = 0; updateViewerControls(); }
-  }, 100);
-}
-
-function resetViewerAutoplay() {
-  clearInterval(vProgTimer);
-  if (autoplay && !viewerPaused) startViewerAutoplay();
-  else updateVcbProgress(0);
-}
-
-function toggleAutoplay() {
-  autoplay = !autoplay;
-  document.getElementById('apTrack').classList.toggle('on', autoplay);
-  if (autoplay && !viewerPaused) startViewerAutoplay();
-  else { clearInterval(vProgTimer); updateVcbProgress(0); }
-  toast(autoplay ? '▶ Autoplay ON' : '⏸ Autoplay OFF');
-}
-
-/* ===== NEW: Play/Pause in viewer ===== */
-function toggleViewerPlayPause() {
-  viewerPaused = !viewerPaused;
-  if (viewerPaused) {
-    clearInterval(vProgTimer);
-  } else {
-    if (autoplay) startViewerAutoplay();
-  }
-  // Toggle native video if present
-  const vid = document.getElementById('vPlayer');
-  if (vid) {
-    if (viewerPaused) vid.pause();
-    else vid.play().catch(()=>{});
-  }
-  updateViewerControls();
-  toast(viewerPaused ? '⏸ Paused' : '▶ Playing');
-}
-
-/* ===== NEW: Fullscreen ===== */
-function toggleViewerFullscreen() {
-  const videoEl = document.getElementById('vPlayer');  // your video element
-  if (!document.fullscreenElement) {
-    if (videoEl && videoEl.requestFullscreen) {
-      videoEl.requestFullscreen().catch(err => toast('Fullscreen error: ' + err.message));
-    } else if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen(); // fallback
-    }
-  } else {
-    document.exitFullscreen();
-  }
-}
-
-// Update fullscreen icon based on state
-document.addEventListener('fullscreenchange', () => {
-  const icon = document.getElementById('vcbFsIcon');
-  if (!icon) return;
-  if (document.fullscreenElement) {
-    icon.innerHTML = '<path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>';
-  } else {
-    icon.innerHTML = '<path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>';
-  }
-});
-
-/* ===== Seek by clicking progress bar ===== */
-function seekViewerProgress(e) {
-  const bar = e.currentTarget;
-  const rect = bar.getBoundingClientRect();
-  const pct = Math.max(0, Math.min(100, (e.clientX - rect.left) / rect.width * 100));
-  vProg = pct;
-  updateVcbProgress(pct);
-  if (!viewerPaused && autoplay) {
-    // Adjust timer to match the seek position
-    clearInterval(vProgTimer);
-    const step = 100 / (6000 / 100);
-    vProgTimer = setInterval(() => {
-      if (viewerPaused) return;
-      vProg = Math.min(vProg + step, 100);
-      updateVcbProgress(vProg);
-      if (vProg >= 100) { vIdx = (vIdx + 1) % vItems.length; renderViewer(); vProg = 0; updateViewerControls(); }
-    }, 100);
-  }
-}
-
-function updateVcbProgress(pct) {
-  const bar = document.getElementById('vcbProgBar');
-  if (bar) bar.style.width = pct + '%';
-}
-
-function updateViewerControls() {
-  const pauseIcon = document.getElementById('vcbPauseIcon');
-  const playIcon = document.getElementById('vcbPlayIcon');
-  if (pauseIcon && playIcon) {
-    pauseIcon.style.display = viewerPaused ? 'none' : '';
-    playIcon.style.display = viewerPaused ? '' : 'none';
-  }
-  updateViewerCounter();
-}
-
-function updateViewerCounter() {
-  const el = document.getElementById('vcbCounter');
-  if (el) el.textContent = `${vIdx + 1} / ${vItems.length}`;
-}
-
-/* ====================================================
-   CATEGORY PAGE
-   ==================================================== */
+// ===== CATEGORY PAGE =====
 function openCatPage(key) {
   const cat = CATS[key]; if (!cat) return;
   currentCat = key;
   setNavActive(key);
 
-  document.getElementById('cpBg').style.cssText = `position:absolute;inset:0;background:url('${cat.bg}') center/cover no-repeat;`;
+  document.getElementById('cpBg').style.background = `url('${cat.bg}') center/cover no-repeat`;
   const tag = document.getElementById('cpTag');
   tag.style.setProperty('--color', cat.color);
-  tag.textContent = cat.label;
-  document.getElementById('cpTitle').textContent = cat.label;
+  tag.textContent = cat.label.replace(/\s*\d+$/, '');
+document.getElementById('cpTitle').textContent = cleanLabel(cat.label);
   document.getElementById('cpSub').textContent = cat.sub;
-  document.getElementById('cpGridTitle').textContent = 'All ' + cat.label + ' Work';
+  document.getElementById('cpGridTitle').textContent = 'All ' + cat.label.replace(/\d+$/, '').trim() + ' Work';
 
   const grid = document.getElementById('cpGrid');
   grid.innerHTML = '';
@@ -995,41 +944,35 @@ function openCatPage(key) {
     const el = document.createElement('div');
     el.className = 'cat-grid-item';
 
-    const isVid = isVideoFile(item.thumb);
-    const poster = isVid ? getPoster(item) : item.thumb;
-
-    if (isVid) {
-      const video = document.createElement('video');
-      video.className = 'cat-grid-video';
-      video.src = item.thumb;
-      video.muted = true; video.loop = true;
-      video.preload = 'none'; video.playsInline = true;
-      el.appendChild(video);
-
-      const posterDiv = document.createElement('div');
-      posterDiv.className = 'cat-grid-poster';
-      posterDiv.style.backgroundImage = `url('${poster}')`;
-      el.appendChild(posterDiv);
-
-      // Overlay (play button only, no text)
+    if (isYouTubeVideo(item)) {
+      const img = document.createElement('img');
+      img.src = item.thumb; img.alt = item.title;
+      el.appendChild(img);
       const overlay = document.createElement('div');
       overlay.className = 'cat-grid-overlay';
       overlay.innerHTML = `<div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>`;
       el.appendChild(overlay);
 
-      el.addEventListener('mouseenter', () => {
-        video.preload='auto'; video.play().catch(()=>{});
-        posterDiv.style.opacity='0';
-      });
-      el.addEventListener('mouseleave', () => {
-        video.pause(); video.currentTime=0;
-        posterDiv.style.opacity='1';
-      });
+    } else if (isVideoFile(item.thumb)) {
+      const video = document.createElement('video');
+      video.className = 'cat-grid-video';
+      video.src = item.thumb; video.muted = true; video.loop = true; video.preload = 'none';
+      el.appendChild(video);
+      const posterDiv = document.createElement('div');
+      posterDiv.className = 'cat-grid-poster';
+      posterDiv.style.backgroundImage = `url('${getPoster(item)}')`;
+      el.appendChild(posterDiv);
+      const overlay = document.createElement('div');
+      overlay.className = 'cat-grid-overlay';
+      overlay.innerHTML = `<div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>`;
+      el.appendChild(overlay);
+      el.addEventListener('mouseenter', () => { video.play().catch(()=>{}); posterDiv.style.opacity='0'; });
+      el.addEventListener('mouseleave', () => { video.pause(); video.currentTime=0; posterDiv.style.opacity='1'; });
+
     } else {
       const img = document.createElement('img');
-      img.src = item.thumb; img.alt = item.title||''; img.loading = 'lazy';
+      img.src = item.thumb; img.alt = item.title;
       el.appendChild(img);
-
       const overlay = document.createElement('div');
       overlay.className = 'cat-grid-overlay';
       overlay.innerHTML = `<div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>`;
@@ -1041,12 +984,7 @@ function openCatPage(key) {
   });
 
   document.getElementById('cat-page').classList.add('open');
-  document.getElementById('cat-page').scrollTop = 0;
   document.body.style.overflow = 'hidden';
-
-  const theme = document.documentElement.getAttribute('data-theme');
-  document.getElementById('cat-btn-dark')?.classList.toggle('active', theme==='dark');
-  document.getElementById('cat-btn-light')?.classList.toggle('active', theme==='light');
 }
 
 function closeCatPage() {
@@ -1057,24 +995,21 @@ function closeCatPage() {
   setNavActive('home');
 }
 
-/* ====================================================
-   INFO MODAL
-   ==================================================== */
+// ===== INFO MODAL =====
 function openInfo(catKey, idx, e) {
   if (e) e.stopPropagation();
-  const cat = CATS[catKey];
+  const cat  = CATS[catKey];
   const item = cat.items[idx];
-  const imgSrc = isVideoFile(item.thumb) ? getPoster(item) : item.thumb;
-  document.getElementById('infoHeroImg').src = imgSrc;
-  document.getElementById('infoMatch').textContent = item.match + '% Match';
-  document.getElementById('infoYear').textContent = item.year || '';
-  document.getElementById('infoTitle').textContent = item.title || '';
-  document.getElementById('infoDesc').textContent = item.desc || '';
+  document.getElementById('infoHeroImg').src       = isVideoFile(item.thumb) ? getPoster(item) : item.thumb;
+  document.getElementById('infoMatch').textContent  = item.match + '% Match';
+  document.getElementById('infoYear').textContent   = item.year || '';
+  document.getElementById('infoTitle').textContent  = item.title || '';
+  document.getElementById('infoDesc').textContent   = item.desc || '';
   document.getElementById('infoCategory').textContent = cat.label;
-  document.getElementById('infoTags').textContent = (item.tags||[]).join(', ');
-  document.getElementById('infoTools').textContent = item.tools || '—';
+  document.getElementById('infoTags').textContent   = (item.tags||[]).join(', ');
+  document.getElementById('infoTools').textContent  = item.tools || '—';
   document.getElementById('infoYearSide').textContent = item.year || '—';
-  document.getElementById('infoPlayBtn').onclick = () => { closeInfo(); openViewer(catKey, idx); };
+  document.getElementById('infoPlayBtn').onclick    = () => { closeInfo(); openViewer(catKey, idx); };
   document.getElementById('info-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1083,39 +1018,84 @@ function closeInfo() {
   document.body.style.overflow = '';
 }
 
-/* ====================================================
-   NAVIGATION
-   ==================================================== */
+// ===== NAVIGATION =====
+function setNavActive(key) {
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if (key === 'home') document.getElementById('nl-home')?.classList.add('active');
+  else document.getElementById('nl-'+key)?.classList.add('active');
+  document.querySelectorAll('.cat-nav-links a').forEach(a => a.classList.remove('active'));
+  if (key && key !== 'home') document.getElementById('cnl-'+key)?.classList.add('active');
+}
+
 function goHome() {
-  closeCatPage(); closeMobileMenu();
+  closeCatPage();
+  closeMobileMenu();
   setNavActive('home');
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-/* ====================================================
-   TOAST
-   ==================================================== */
-let toastTimer;
-function toast(msg) {
-  const el = document.getElementById('toast');
-  el.textContent = msg; el.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+function closeMobileMenu()  { document.getElementById('mobile-menu').classList.remove('open'); }
+
+function toggleViewStyle() {
+  const isNetflix = !document.body.classList.contains('minimal-view');
+  document.body.classList.toggle('minimal-view', !isNetflix);
+  document.getElementById('view-netflix')?.classList.toggle('active', isNetflix);
+  document.getElementById('view-minimal')?.classList.toggle('active', !isNetflix);
+  toast(isNetflix ? '✨ Minimal Layout' : '🎬 Netflix Layout');
 }
 
-// Close info modal on backdrop click
-document.getElementById('info-modal').addEventListener('click', function(e) {
-  if (e.target === this) closeInfo();
+// ===== INIT =====
+function enterPortfolio() {
+  document.getElementById('splash').classList.add('hidden');
+  document.getElementById('navbar').classList.add('visible');
+  document.getElementById('hero').classList.add('visible');
+  buildHero();
+  buildAllRows();
+  buildContinueRow();
+  window.addEventListener('scroll', () =>
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60)
+  );
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('splash').classList.contains('hidden') && e.key === 'ArrowUp') enterPortfolio();
+  if (document.getElementById('viewer').classList.contains('open')) {
+    if (e.key === 'ArrowLeft')  viewNav(-1);
+    if (e.key === 'ArrowRight') viewNav(1);
+    if (e.key === 'Escape')     closeViewer();
+    if (e.key === ' ') { e.preventDefault(); toggleViewerPlayPause(); }
+    if (e.key === 'f' || e.key === 'F') toggleViewerFullscreen();
+  }
+  if (document.getElementById('info-modal').classList.contains('open') && e.key === 'Escape') closeInfo();
+  if (document.getElementById('cat-page').classList.contains('open')   && e.key === 'Escape') closeCatPage();
 });
 
-// Close mobile menu on outside click
-document.addEventListener('click', function(e) {
+document.getElementById('splash')?.addEventListener('click', () => {
+  if (!document.getElementById('splash').classList.contains('hidden')) enterPortfolio();
+});
+
+document.getElementById('info-modal')?.addEventListener('click', e => { if (e.target === this) closeInfo(); });
+document.addEventListener('click', e => {
   const menu = document.getElementById('mobile-menu');
-  const btn = document.getElementById('hamburger-btn');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
-    closeMobileMenu();
+  const btn  = document.getElementById('hamburger-btn');
+  if (menu?.classList.contains('open') && !menu.contains(e.target) && !btn?.contains(e.target)) closeMobileMenu();
+});
+
+document.addEventListener('fullscreenchange', () => {
+  const icon = document.getElementById('vcbFsIcon');
+  if (icon) {
+    icon.innerHTML = document.fullscreenElement
+      ? '<path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>'
+      : '<path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>';
   }
 });
+
+(function() {
+  try { const s = localStorage.getItem('portfolio_theme'); if (s) applyTheme(s); } catch(e) {}
+})();
+
+console.log('✅ Portfolio ready! Video Editing merged into Motion/Video Editing.');
 </script>
 </body>
 </html>
