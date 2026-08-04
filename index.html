@@ -603,14 +603,20 @@ function renderViewer() {
     if (playPauseBtn) playPauseBtn.style.opacity  = '1';
 
     const video       = document.createElement('video');
-    video.id          = 'vPlayer';
-    video.src         = item.thumb;
-    video.poster      = getPoster(item);
-    video.autoplay    = true;
-    video.controls    = false;
-    video.playsInline = true;
-    stage.insertBefore(video, prevBtn);
+video.id          = 'vPlayer';
+video.src         = item.thumb;
+video.poster      = getPoster(item);
+video.autoplay    = true;
+video.controls    = false;
+video.playsInline = true;
 
+video.onended = () => {
+    if (autoplay) {
+        viewNav(1);
+    }
+};
+
+stage.insertBefore(video, prevBtn);
   } else {
     if (progressWrap) progressWrap.style.opacity = '1';
     if (playPauseBtn) playPauseBtn.style.opacity  = '1';
@@ -695,9 +701,8 @@ function startViewerAutoplay() {
     vProg = Math.min(vProg + 100/60, 100);
     updateVcbProgress(vProg);
     if (vProg >= 100) {
-      vIdx = (vIdx + 1) % vItems.length;
-      renderViewer(); vProg = 0; updateViewerControls();
-    }
+    clearInterval(vProgTimer);
+}
   }, 100);
 }
 
